@@ -1,0 +1,60 @@
+
+<div class=container>
+  <%= form_for @about, class: 'box' do |form| %>
+    <% if about.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(about.errors.count, "error") %> prohibited this about from being saved:</h2>
+
+        <ul>
+          <% about.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field is-horizontal is-justify-content-space-between">
+      <div class="field is-expanded is-pulled-left">
+        <%= form.label :name, class: 'label' %>
+        <div class="control">
+          <%= form.text_field :name, class: 'input is-medium' %>
+        </div>
+      </div>
+      <div class="form-field is-expanded is-pulled-right mr-6">
+        <%= form.label :visible, class: 'radio label'%>
+        <%= form.radio_button :visible, true %> Si
+        <%= form.radio_button :visible, false %> No
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :content1, class: 'label' %>
+      <div class="control">
+        <%= form.rich_text_area :content1, class: 'input is-medium' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :content2, class: 'label' %>
+      <div class="control">
+        <%= form.rich_text_area :content2, class: 'input is-medium' %>
+      </div>
+    </div>
+      <div class="field">
+      <%= form.label :content3, class: 'label' %>
+      <div class="control">
+        <%= form.rich_text_area :content3, class: 'input is-medium' %>
+      </div>
+    </div>     
+    <div class="field">
+      <%= form.label :image, class: 'label' %>
+      <div class="control">
+        <%= form.file_field :image, class: 'input is medium' %>
+      </div>
+    </div>
+    <div class="actions control">
+      <%= form.submit 'crear about', class: 'button is-link'%>
+    </div>
+  <% end %>
+</div>
+
+
+

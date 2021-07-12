@@ -1,0 +1,35 @@
+<% if @banner.present? && @banner.parallax? %>  
+  <style>
+    <%= "#parallax-#{@count}" %>{
+      background: url('<%= render(ImageComponent.new( image: @banner.image )) %>');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;    
+    } 
+  </style>
+<% else %>
+  <style>
+    <%= "#main-section-#{@count}"  %>{
+      background: url('<%= render(ImageComponent.new( image: @banner.image )) %>') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+<% end %>
+
+<section id='<%= @banner.parallax? ? "parallax-#{@count}" : "main-section-#{@count}" %>' class="hero is-large ">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-6 is-offset-6">
+          <%= render(BodyComponent.new(title: @banner.title, body: @banner.body))%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

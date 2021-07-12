@@ -1,0 +1,46 @@
+
+<%= form_for @album, html: {multipart: true, class: 'box'} do |form| %>
+  <% if album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+        <% album.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :titulo, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :title, class: 'input is-medium' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :invitados, class: 'label' %>
+      <div class="control">
+        <%= form.number_field :wedding_guest, class: 'input is-medium' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :fecha, class: 'label' %>
+      <div class="control">
+          <%= form.date_field :date_event, class: 'input is-medium' %>
+      </div>
+    </div>  
+
+    <div class="field">
+      <%= form.label :contraseña, class: 'label' %>
+      <div class="control">
+          <%= form.text_field :password, class: 'input is-medium' %>
+      </div>
+    </div>  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+      <h4 class="panel-heading | subtitle is-4 | has-text-centered">
+       Photos
+      </h4>
+
+<%= link_to 'New Photo', new_photo_path, class: "button is-primary is-hoverable mb-2" %>
+
+<table  class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th class="title is-5 has-text-centered">Imagen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photos.each do |photo| %>
+      <tr>
+        <td> 
+          <% if photo.image.attached? %>
+            <%= image_tag photo.image, width: '100' %> </td>
+          <% end %>
+         <td><%= link_to svg('ico-eye.svg'), photo, class: 'icon is-centered is-vcentered' %></td>
+        <td><%= link_to svg('ico-edit.svg'), edit_photo_path(photo), class: 'icon is-centered is-vcentered' %></td>
+        <td><%= link_to svg('ico-trash.svg'), photo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

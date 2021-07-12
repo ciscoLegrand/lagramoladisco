@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<% if @awards.present? %>
+  <% @awards.images.each do |imagen| %>
+    <%= image_tag url_for(imagen), data: {src: "#{rails_blob_url(imagen)}"}, class:"column is-3 col-light is-5by3" %>
+  <% end %>
+<% else %>
+no hai premios  
+<% end %>
+
+<%= link_to 'Edit', edit_award_path(@award) %> |
+<%= link_to 'Back', awards_path %>

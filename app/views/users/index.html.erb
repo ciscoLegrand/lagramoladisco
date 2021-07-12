@@ -1,0 +1,52 @@
+      <h4 class="panel-heading | subtitle is-4 | has-text-centered">
+       Usuarios 
+      </h4>
+
+<div class="card has-table">
+  <header class="card-header">
+    <p class="card-header-title">
+    </p>
+    <a href="#" class="card-header-icon">
+      <span class="icon"><i class="mdi mdi-reload"></i></span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="b-table has-pagination">
+      <div class="table-wrapper has-mobile-cards">
+        <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+          <thead>
+          <tr>
+            <th></th>
+            <th class="title is-5">Nombre</th>
+            <th class="title is-5">Email</th>
+            <th class="title is-5">Registro</th>
+            <th class="title is-5">Rol</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td class="is-image-cell">
+              <div class="image is-64x64">
+                <div style="width:64px;height:64px;border-radius:50px;background:red;position:relative;">
+                  <div class="has-text-white is-size-1" style="position:absolute;left:15px;bottom:30px">
+                    <%=  user.name.to_s[0] %>
+                  </div>
+                </div>
+                <!-- <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="is-rounded"> -->
+              </div>
+            </td>        
+            <td data-label="Name"><%= user.name %></td>
+            <td data-label="Email"><%= user.email %></td>
+            <td data-label="Created_at"><%= user.created_at %></td>
+            <td  data-label="Role">  <%= user.role %> </td>
+            <td></td>
+          </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

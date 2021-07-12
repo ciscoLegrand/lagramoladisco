@@ -1,0 +1,21 @@
+<h3 class="subtitle is-4 has-text-centered">Añadir imagenes</h3>
+
+<div class=container>
+  <div class=columns is-vcentered>
+    <div class=column>
+      <%= form_for([@album, @album.galleries.build]) do |form| %>
+
+        <div class="field">
+          <%= form.label :imagen, class: 'label' %>
+          <div class="control">
+            <%= form.file_field :images, multiple: true, direct_upload: true, class: 'input is medium' %>
+          </div>
+        </div>
+                
+        <div class="actions control">
+          <%= form.submit 'añadir fotos', class: 'button is-primary'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

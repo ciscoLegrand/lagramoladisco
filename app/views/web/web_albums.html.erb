@@ -1,0 +1,35 @@
+
+<section class="hero is-info">
+<div class="hero-body">
+  <div class="container has-text-centered">
+    <h1 class="title is-1 has-text-centered py-2">
+      Galerias
+    </h1>
+  </div>
+</div> 
+<div class="box">
+  <%= form_tag resultados_path, method: :get, class: 'is-pulled-right' do %>
+    <div class="field has-addons " >
+      <div class="control">
+        <%= text_field_tag :title, params[:title], class: 'input is-medium' %>
+      </div>
+      <div class="control">
+        <%= submit_tag :search, :name => nil, class: 'button is-medium is-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</section>
+<!-- Main container -->
+<div class="container is-fluid  is-max-width  py-3 ">
+  <div class="columns is-mobile is-multiline">
+    <%= render(AlbumComponent.with_collection(@albums)) %>
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+        <%= WebConfig.first.enterprise_name.present? ? WebConfig.first.enterprise_name : 'cAppweb'  %>
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
+    <%= tag.meta name: "direct-upload-url", content: rails_direct_uploads_path %>
+  </head>
+
+  <body>
+    <div class="app is-flex-direction-row mt-6">
+      <%= render 'layouts/partials/admin_navbar' %> 
+      <% if current_user %>
+        <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
+          <div class="column is-2 is-pulled-left has-background-dark" style="margin: 0 !important; padding:0 !important;">
+            <%= render 'layouts/partials/admin_aside' %>
+          </div>
+        <% end %>
+        <section class="column is-10 is-pulled-left" style="margin: 0 !important; padding:0 !important;">
+      <% else %>
+        <section class="column is-12 is-pulled-left" style="margin: 0 !important; padding:0 !important;">
+      <% end %>
+        <section class="section is-main-section has-background-dark-light">
+          <div class="tile is-ancestor">
+            <div class="tile is-parent is-flex-direction-column">
+              <% if notice %>
+                <p  id="notice" class="notification is-fluid has-text-centered is-success is-size-4"><%= notice %></p>
+              <% end %>
+              <!-- cuerpo yield ruby-->
+              <%= yield %>
+              <!-- fin cuerpo yield ruby-->
+            </div>
+          </div>
+        </section>
+      </section>
+      <%= render 'layouts/partials/footer' %>
+    </div>
+
+          
+  </body>
+</html>

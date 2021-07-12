@@ -1,0 +1,213 @@
+<div class="box my-5">
+  <%= form_with(model: @web_config) do |form| %>
+    <% if 1 == 0 %>
+      <% if @web_config.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@web_config.errors.count, "error") %> prohibited this web_config from being saved:</h2>
+
+          <ul>
+            <% @web_config.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= form.label :logoweb, class: 'label' %>
+          <div class="control">
+            <%= form.file_field :logoweb, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :enterprise_name, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :enterprise_name, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :url_web, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :url_web, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :cif, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :cif, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :corporative_color, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :corporative_color, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :global_email, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :global_email, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :contact_phone, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :contact_phone, class: 'input is-medium' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= form.label :adress_line_one, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :adress_line_one, class: 'input is-medium' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :adress_line_two, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :adress_line_two, class: 'input is-medium' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :location, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :location, class: 'input is-medium' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :postal_code, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :postal_code, class: 'input is-medium' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :region, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :region, class: 'input is-medium' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :country, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :country, class: 'input is-medium' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= form.label :url_facebook, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :url_facebook, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :url_instagram, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :url_instagram, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :url_twitter, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :url_twitter, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :url_pinterest, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :url_pinterest, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :url_bodas_net, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :url_bodas_net, class: 'input is-medium' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= form.label :meta_title, class: 'label' %>
+          <div class="control">
+            <%= form.text_area :meta_title, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :meta_description, class: 'label' %>
+          <div class="control">
+            <%= form.text_area :meta_description, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :language, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :language, class: 'input is-medium' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= form.label :ftp_user, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :ftp_user, class: 'input is-medium' %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :ftp_password, class: 'label' %>
+          <div class="control is-expanded has-icons-left">
+            <%= form.text_field :ftp_password, class: 'input is-medium' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <%= form.label :secret_key_recaptcha, class: 'label' %>
+          <div class="control is-expanded has-icons-left">
+            <%= form.text_field :secret_key_recaptcha, class: 'input is-medium' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label :public_key_recaptcha, class: 'label' %>
+          <div class="control is-expanded has-icons-left">
+            <%= form.text_field :public_key_recaptcha, class: 'input is-medium' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Actualizar', class: 'button is-medium is-primary' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+ <div class="card service-card <%= @counter%2 == 0 ? 'moveright' : 'moveleft'  %>">
+  <%#= render(LinkComponent.new( href: @service, name: @service.name )) %>
+  <div class="card-image service-img-card-<%= @counter%2 == 0 ? 'right' : 'left'  %> px-2 py-2">
+    <%= render(ImageComponent.new( image: @service.image, href: servicio_path(@service) ))%>
+  </div>
+  <div class="card-content service-card-content-<%= @counter%2 == 0 ? 'right' : 'left'  %>">
+    <%= render(MediaContentComponent.new( title: @service.name, body: @service.description ))%>
+    <%#= render(PriceTagComponent.new( price: @service.price ))%>
+  </div>
+</div>

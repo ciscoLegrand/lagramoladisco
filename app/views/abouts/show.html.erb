@@ -1,0 +1,66 @@
+<h4 class="panel-heading | subtitle is-4 | has-text-centered">
+  Sobre nosotros
+</h4>
+<%= link_to 'Edit',  edit_about_path(@about) , class: 'button is-small is-primary' %> |
+<%= link_to 'Back',abouts_path, class: 'button is-small primary-lightest'%>
+
+<div id="WebDev" class="content-tab" >
+    <div class="container">
+      <div class="columns is-centered is-vcentered">
+        <div class="column is-6">
+          <div class="p-6" style="position: relative;">
+              <%=  image_tag(url_for(@about.image)) if @about.image.attached?  %>
+          </div>
+        </div>
+        <div class="column is-6 pl-6">
+          <% if @about.name.present? %>
+            <div class="mb-6">
+              <span class="tag is-info is-rounded">Lorem ipsum</span>
+              <h2 class="mt-4 title is-size-3"><%= @about.name %></h2>
+            </div>
+          <% end %>
+          <% if @about.content1.present? %>
+            <div class="is-flex mb-6">
+              <div class="mr-4 has-text-primary">
+                <svg class="image is-32x32" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="title is-size-5 is-spaced mb-3">Easy to customize</h3>
+                <p class="subtitle"><%=@about.content1 %></p>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @about.content2.present? %>
+            <div class="is-flex mb-6">
+              <div class="mr-4 has-text-primary">
+                <svg class="image is-32x32" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="title is-size-5 is-spaced mb-3">Flexible software</h3>
+                <p class="subtitle"><%=@about.content2 %></p>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @about.content3.present? %>
+            <div class="is-flex">
+              <div class="mr-4 has-text-primary">
+                <svg class="image is-32x32" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="title is-size-5 is-spaced mb-3">Best access for all of the resources</h3>
+                <p class="subtitle"><%=@about.content3 %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>    
+</div>

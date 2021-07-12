@@ -1,0 +1,77 @@
+<h4 class="panel-heading | subtitle is-4 | has-text-centered"> Album </h4>
+<div class="container">
+  <h1 class="title is-1 has-text-centered py-6"> <%= @album.title %></h1>
+</div>
+
+<div class="container is-fluid is-mobile my-6">
+  <nav class="level is-mobile column-mobile">
+    <!-- Left side -->
+    <div class="level-left">
+      <div class="level-item">
+        <% if can? :create, Album %> 
+          <%= link_to 'Edit', edit_album_path(@album), class: 'button is-primary is-hovered is-medium' %>   
+        <% end %>
+      </div>
+    </div>
+    <% if 1 == 0 %>    
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="subtitle is-5">
+          <div class="pr-3"><%#= @album.images.count %> Imagenes</div>
+        </p>  
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Invitados</p>
+        <p class="title"><%= @album.wedding_guest %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Visistas</p>
+        <p class="title">456K</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">galerias</p>
+        <p class="title"><%= @album.galleries.count%></p>
+      </div>
+    </div>
+    <% end %>
+    <!-- Right side -->
+    <div class="level-right">
+      <div class="level-item">
+        <%= link_to 'Back', albums_path, class: 'button is-link is-hovered is-medium' %>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<%= render 'galleries/form' %>
+
+<!--contenedor galeria principal-->
+<% if @album.galleries.present? %>
+  <div class="container">
+    <div class="lb-images">
+      <% @album.galleries.each do |gallery| %>
+        <% if gallery.images.attached?%>
+          <div class="columns is-multiline">
+            <div class="images" data-controller="lightbox" data-lightbox-options-value='{"controls": true, "loop":true}'>
+              <% gallery.images.each do |imagen| %>
+                <%= image_tag url_for(imagen), data: {src: "#{rails_blob_url(imagen)}"}, class:"column is-3 col-light is-5by3" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %> 
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<!--contenedor galeria principal-->
+
+
+
+

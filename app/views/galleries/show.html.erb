@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @gallery.album_id %>
+</p>
+<% if @gallery.images.attached? %>
+  
+  <% @gallery.images.each do |imagen| %>
+    <%= image_tag url_for(imagen), data: {src: "#{rails_blob_url(imagen)}"}, class:"column is-3 col-light is-5by3" %>
+  <% end %>
+  
+<% end %>
+<%= link_to 'Edit', edit_album_path(@gallery) %> |
+<%= link_to 'Back', edit_album_path %>

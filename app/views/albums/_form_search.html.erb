@@ -1,0 +1,11 @@
+<% form_tag ({:controller => :album, :action => :index }, method: => :get, class: 'box' ) do %>
+  <div class="field">
+    <%= label_tag 'busqueda_texto', 'Texto', class: 'label'%>
+    <div class="control">
+      <%= text_field_tag 'busqueda[texto]'%>
+    </div>
+  </div>
+  <div class="actions control">
+    <%= form.submit 'buscar', class: 'button is-success'%>
+  </div>
+<% end %>

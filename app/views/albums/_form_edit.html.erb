@@ -1,0 +1,32 @@
+  <div class=container>
+    <div class=columns is-vcentered>
+      <div class=column>
+        <%= form_for @album, html: {multipart: true, class:'box'} do |form| %>
+          <% if album.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+              <ul>
+                <% album.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+          <div class="field">
+            <%= form.label :imagen, class: 'label' %>
+            <div class="control">
+              <%= form.file_field :images, multiple: true, class: 'input is medium' %>
+            </div>
+          </div>
+          
+
+          <div class="actions control">
+            <%= form.submit 'añadir fotos', class: 'button is-primary'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

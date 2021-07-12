@@ -1,0 +1,15 @@
+      <h4 class="panel-heading | subtitle is-4 | has-text-centered">
+       Album
+      </h4>
+
+<div class="container">
+  <%= link_to 'Show', @album,  class: 'button is-success' %> |
+  <%= link_to 'Back', albums_path,  class: 'button is-link' %>
+</div>
+<section class="section">
+  <div class="container">
+    <h4 class="title is-4">Edita el album</h4>
+    <%= render 'albums/form_edit', album: @album %>
+  </div>
+</section>
+

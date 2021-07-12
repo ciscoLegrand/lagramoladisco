@@ -1,0 +1,41 @@
+<section class="hero is-info">
+<div class="hero-body">
+  <div class="container has-text-centered">
+      <h1 class="title is-1 has-text-centered py-2">
+        Servicios
+      </h1>
+    </div>
+</div> 
+</section>
+
+<div class="container is-max-width  py-3 ">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @service.service_items.order('created_at DESC').each do |service| %>
+        <div class="column is-6">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                  <% if service.images.first.present? %>
+                    <%= image_tag(url_for(service.images.first)) %>
+                  <% else %>
+                  <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4"><%= "#{service.name}" %></p>
+                  <p class="subtitle is-6"><%= service.body %> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+    

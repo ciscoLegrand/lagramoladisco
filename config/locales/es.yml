@@ -1,0 +1,4 @@
+es:
+  layouts:
+    partials:
+      navbar: "Hola %{name}"

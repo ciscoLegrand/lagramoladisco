@@ -1,0 +1,59 @@
+
+<div class=container>
+  <%= form_for @home_banner, html: {multipart: true, class: 'box'} do |form| %>
+    <% if home_banner.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(home_banner.errors.count, "error") %> prohibited this home_banner from being saved:</h2>
+
+        <ul>
+          <% home_banner.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control">
+      <div class="field is-horizontal is-justify-content-space-between">
+        <div class="form-field is-expanded is-pulled-left">
+          <%= form.label :visible, class: 'radio label'%>
+          <%= form.radio_button :visible, true %> Si
+          <%= form.radio_button :visible, false %> No
+        </div>
+        <div class="form-field is-expanded ">
+          <%= form.label :parallax, class: 'radio label' %>
+          <%= form.radio_button :parallax, true %> Activado
+          <%= form.radio_button :parallax, false %> Desactivado
+        </div>
+        <div class="form-field is-expanded is-pulled-right">
+          <%= form.label :position, class: 'label' %> 
+          <%= form.number_field :position, min: 1, max: 3, class: 'input is-medium' %>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :title, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :title, class: 'input is-medium' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :body, class: 'label' %>
+      <div class="control">
+        <%= form.rich_text_area :body, class: 'input is-medium' %>
+      </div>
+    </div>  
+    <div class="field">
+      <%= form.label :image, class: 'label' %>
+      <div class="control">
+        <%= form.file_field :image, class: 'input is medium' %>
+      </div>
+    </div>
+    <div class="actions control">
+      <%= form.submit 'crear home_banner', class: 'button is-link'%>
+    </div>
+  <% end %>
+</div>
+
+
+

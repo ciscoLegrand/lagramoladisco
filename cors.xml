@@ -1,0 +1,15 @@
+<CORSConfiguration>
+	<CORSRule>
+		<AllowedOrigin>http://localhost:3000</AllowedOrigin>
+		<AllowedOrigin>http://cappweb.ga</AllowedOrigin>
+
+		<AllowedMethod>GET</AllowedMethod>
+		<AllowedMethod>PUT</AllowedMethod>
+		<AllowedMethod>POST</AllowedMethod>
+		<AllowedMethod>DELETE</AllowedMethod>
+		<AllowedMethod>HEAD</AllowedMethod>
+
+		<AllowedHeader>*</AllowedHeader>
+	</CORSRule>
+</CORSConfiguration>
+

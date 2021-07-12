@@ -1,0 +1,2 @@
+module WebConfigsHelper
+end
