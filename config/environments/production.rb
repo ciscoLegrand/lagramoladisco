@@ -5,7 +5,7 @@ Rails.application.configure do
   # config.action_mailbox.ingress = :relay
 
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "gramoladisco.com"
+  config.hosts << "lagramoladisco.com"
   config.hosts << "www.lagramoladisco.com"
   # Code is not reloaded between requests.
   config.cache_classes = true
