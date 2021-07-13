@@ -13,7 +13,7 @@ class ServiceItemsController < ApplicationController
     else
       flash[:error] = "service item could not be deleted."
     end
-    redirect_to @services
+    redirect_to services_path
   end
 
   private

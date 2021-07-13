@@ -4,7 +4,7 @@
   <div class="container">     
     <%#= link_to  service_item do %>
       <div class="card">
-        <%= link_to 'Eliminar', todo_list_todo_item_path(@service, service_item.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to 'Eliminar', service_service_item_path(@service, service_item.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'button is-small is-warning' %>
         <% if 1== 0 %>
           <div class="card-image px-2 py-2">
             <figure class="image is-4by3">
