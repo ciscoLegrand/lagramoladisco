@@ -1,7 +1,6 @@
       <h4 class="panel-heading | subtitle is-4 | has-text-centered">
        Usuarios 
       </h4>
-
 <div class="card has-table">
   <header class="card-header">
     <p class="card-header-title">
@@ -18,6 +17,8 @@
           <tr>
             <th></th>
             <th class="title is-5">Nombre</th>
+            <th class="title is-5">Apellido</th>
+            <th class="title is-5">Telefono</th>
             <th class="title is-5">Email</th>
             <th class="title is-5">Registro</th>
             <th class="title is-5">Rol</th>
@@ -38,6 +39,8 @@
               </div>
             </td>        
             <td data-label="Name"><%= user.name %></td>
+            <td data-label="Name"><%= user.last_name %></td>
+            <td data-label="Name"><%= user.phone %></td>
             <td data-label="Email"><%= user.email %></td>
             <td data-label="Created_at"><%= user.created_at %></td>
             <td  data-label="Role">  <%= user.role %> </td>
