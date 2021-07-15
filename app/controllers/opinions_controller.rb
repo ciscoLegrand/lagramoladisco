@@ -4,7 +4,7 @@ class OpinionsController < ApplicationController
 
   # GET /opinions or /opinions.json
   def index
-    @opinions = Opinion.all
+    @pagy, @opinions = pagy(Opinion.all, items: 10)
   end
   # to do web_scrapping
   def scrape

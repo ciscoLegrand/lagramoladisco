@@ -29,9 +29,9 @@
           <% @users.each do |user| %>
           <tr>
             <td class="is-image-cell">
-              <div class="image is-64x64">
-                <div style="width:64px;height:64px;border-radius:50px;background:red;position:relative;">
-                  <div class="has-text-white is-size-1" style="position:absolute;left:15px;bottom:30px">
+              <div class="image is-32x32">
+                <div style="width:32px;height:32px;border-radius:50px;background:red;position:relative;">
+                  <div class="has-text-white is-size-5" style="position:absolute;left:10px;bottom:10px">
                     <%=  user.name.to_s[0] %>
                   </div>
                 </div>
@@ -49,6 +49,9 @@
           <% end %>
           </tbody>
         </table>
+      </div>
+      <div class="py-5">
+        <%== pagy_bulma_nav(@pagy) %>
       </div>
     </div>
   </div>

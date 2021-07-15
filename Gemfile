@@ -62,3 +62,4 @@ gem "view_component",require: "view_component/engine"
 gem 'kimurai', '~> 1.4'
 
 gem 'aws-sdk-s3'
+gem 'pagy'

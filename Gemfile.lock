@@ -179,6 +179,7 @@ GEM
       racc (~> 1.4)
     ntlm-http (0.1.1)
     orm_adapter (0.5.0)
+    pagy (4.10.1)
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pmap (1.1.1)
@@ -315,6 +316,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kimurai (~> 1.4)
+  pagy
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

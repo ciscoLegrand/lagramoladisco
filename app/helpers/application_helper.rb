@@ -1,5 +1,7 @@
 module ApplicationHelper
-
+  # for pagy pagination
+  include Pagy::Frontend
+  
   def this_year
     current_year = Date.today.year
   end
