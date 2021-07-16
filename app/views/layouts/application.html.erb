@@ -18,8 +18,8 @@
   <body>
     <div class="app is-flex-direction-row mt-6">
       <%= render 'layouts/partials/admin_navbar' %> 
-      <% if current_user %>
-        <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
+      <% if user_signed_in? %>
+        <% if current_user.is_admin? || current_user.is_superadmin? %>
           <div class="column is-2 is-pulled-left has-background-dark" style="margin: 0 !important; padding:0 !important;">
             <%= render 'layouts/partials/admin_aside' %>
           </div>

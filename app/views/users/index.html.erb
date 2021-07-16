@@ -1,6 +1,19 @@
       <h4 class="panel-heading | subtitle is-4 | has-text-centered">
        Usuarios 
       </h4>
+      <div class="box">
+  <%= form_tag users_path, method: :get, class: 'is-pulled-right' do %>
+    <div class="field has-addons " >
+      <div class="control">
+        <%= text_field_tag :search, params[:search], class: 'input is-medium' %>
+      </div>
+      <div class="control">
+        <%= submit_tag :buscar, :name => nil, class: 'button is-medium is-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <div class="card has-table">
   <header class="card-header">
     <p class="card-header-title">
@@ -16,41 +29,25 @@
           <thead>
           <tr>
             <th></th>
-            <th class="title is-5">Nombre</th>
-            <th class="title is-5">Apellido</th>
+            <th class="title is-5"> <%= link_to 'Nombre', sort: :name %> </th>
+            <th class="title is-5"><%= link_to 'Apellido', sort: :last_name %></th>
             <th class="title is-5">Telefono</th>
             <th class="title is-5">Email</th>
             <th class="title is-5">Registro</th>
-            <th class="title is-5">Rol</th>
+            <th class="title is-5"><%= link_to 'Rol', sort: :role %></th>
             <th></th>
           </tr>
           </thead>
           <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td class="is-image-cell">
-              <div class="image is-32x32">
-                <div style="width:32px;height:32px;border-radius:50px;background:red;position:relative;">
-                  <div class="has-text-white is-size-5" style="position:absolute;left:10px;bottom:10px">
-                    <%=  user.name.to_s[0] %>
-                  </div>
-                </div>
-                <!-- <img src="https://avatars.dicebear.com/v2/initials/rebecca-bauch.svg" class="is-rounded"> -->
+            <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+              <div data-target="infinite-scroll.users">
+                <%= render 'users' %>
               </div>
-            </td>        
-            <td data-label="Name"><%= user.name %></td>
-            <td data-label="Name"><%= user.last_name %></td>
-            <td data-label="Name"><%= user.phone %></td>
-            <td data-label="Email"><%= user.email %></td>
-            <td data-label="Created_at"><%= user.created_at %></td>
-            <td  data-label="Role">  <%= user.role %> </td>
-            <td></td>
-          </tr>
-          <% end %>
+            </div>
           </tbody>
         </table>
       </div>
-      <div class="py-5">
+      <div class="" data-target="infinite-scroll.pagination">
         <%== pagy_bulma_nav(@pagy) %>
       </div>
     </div>
