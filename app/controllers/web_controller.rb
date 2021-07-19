@@ -49,6 +49,7 @@ class WebController < ApplicationController
 
     if params.has_key?(:password) && params[:password].length > 0 && params[:password] == @password
       @album = Album.find(params[:album_id])
+      @pagy, @galleries  = pagy(Album.find(params[:album_id]).galleries.all, items: 50)
     else
       redirect_to picmaton_path
     end
