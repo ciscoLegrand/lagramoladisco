@@ -1,19 +1,22 @@
-// Set your brand colors
-$primary: #029ee2;
-$info: #029ee2;
-// $success: #757763;
-// $warning: yellow;
-$danger: #d63724;
-$light: #eee;
-// $dark: #444;
 
 // Update font family
 $family-sans-serif: "Calibri", "Arial";
 
+// Set your brand colors
+$white: hsl(0, 0%, 100%);
+$primary: hsl(0, 98%, 45%);
+$info: hsl(198, 98%, 45%);
+$danger: hsl(6, 71%, 49%);
+$light: hsl(0, 0%, 93%);
+$grey-lightest: hsl(0, 0%, 97%);
+$grey-light: hsla(0, 0%, 97%, 0.8%);
 $primary-lightest: rgba($primary, 0.1);
 $primary-light: rgba($primary, 0.5);
 
-$link: #0adb49;
+$success:hsl(138, 91%, 45%); 
+$warning: hsl(34, 100%, 50%);
+$error: hsl(0, 100%, 50%);
+$link: hsl(236, 79%, 56%);
 $link-hover: rgba($primary, 0.8);
 $link-hover-border: $primary;
 $input-focus-border-color: $light;
@@ -37,3 +40,5 @@ $box-radius: 3px;
 
 $table-row-hover-background-color: $primary-lightest;
 $table-head-cell-border-width: 0 0 1px;
+
+$box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);

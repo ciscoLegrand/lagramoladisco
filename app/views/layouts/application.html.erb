@@ -31,8 +31,8 @@
         <section class="section is-main-section has-background-dark-light">
           <div class="tile is-ancestor">
             <div class="tile is-parent is-flex-direction-column">
-              <% if notice %>
-                <p  id="notice" class="notification is-fluid has-text-centered is-success is-size-4"><%= notice %></p>
+              <% flash.each do |type, data| %>
+                <%= render NotificationComponent.new(type: type, data: data) %>
               <% end %>
               <!-- cuerpo yield ruby-->
               <%= yield %>
