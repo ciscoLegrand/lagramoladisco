@@ -24,18 +24,18 @@ class GalleriesController < ApplicationController
   def create
     @album = Album.find(params[:album_id])
     @gallery = @album.galleries.create(gallery_params)
-    redirect_to album_path(@album)
+    # redirect_to album_path(@album)
     # @gallery = Gallery.new(gallery_params)
 
-    # respond_to do |format|
-    #   if @gallery.save
-    #     format.html { redirect_to @gallery, notice: "Gallery was successfully created." }
-    #     format.json { render :show, status: :created, location: @gallery }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @gallery.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @gallery.save
+        format.html { redirect_to album_path(@album), notice: "Gallery was successfully created." }
+        format.json { render :show, status: :created, location: @gallery }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @gallery.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /galleries/1 or /galleries/1.json

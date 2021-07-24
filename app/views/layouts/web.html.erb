@@ -15,6 +15,9 @@
 
   <body>
     <%= render 'layouts/partials/navbar' %>
+    <% flash.each do |type, data| %>
+      <%= render NotificationComponent.new(type: type, data: data) %>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/partials/footer' %>
   </body>

@@ -13,20 +13,25 @@
         <% end %>
       </div>
     </div>
-    <% if 1 == 0 %>    
     <div class="level-item has-text-centered">
       <div>
         <p class="subtitle is-5">
-          <div class="pr-3"><%#= @album.images.count %> Imagenes</div>
+          <%= @album.galleries.count %> Galerias
         </p>  
       </div>
     </div>
     <div class="level-item has-text-centered">
       <div>
-        <p class="heading">Invitados</p>
-        <p class="title"><%= @album.wedding_guest %></p>
+        <% 
+          @total_images = 0
+          @album.galleries.each do |gal|
+            @total_images += gal.images.length
+          end
+        %>
+        <p class="heading"><%= @total_images %> Imagenes</p>
       </div>
     </div>
+    <% if 1 == 0 %>    
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Visistas</p>
@@ -56,6 +61,8 @@
 <% if @album.galleries.present? %>
   <div class="container">
     <div class="lb-images">
+
+      
       <% @album.galleries.each do |gallery| %>
         <% if gallery.images.attached?%>
           <div class="columns is-multiline">

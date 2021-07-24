@@ -5,7 +5,7 @@
   <%= form_tag users_path, method: :get, class: 'is-pulled-right' do %>
     <div class="field has-addons " >
       <div class="control">
-        <%= text_field_tag :search, params[:search], class: 'input is-medium' %>
+        <%= text_field_tag :name, params[:name], class: 'input is-medium' %>
       </div>
       <div class="control">
         <%= submit_tag :buscar, :name => nil, class: 'button is-medium is-primary' %>

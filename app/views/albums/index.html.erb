@@ -23,10 +23,11 @@
                    <th class="title is-5">Fecha</th>
                    <th class="title is-5">Contraseña</th>
                    <th class="title is-5">Portada</th>
+                   <th class="title is-5">Imagenes</th>
                    <th colspan="2"></th>
                  </tr>
                </thead>
-
+              
                <tbody>
                  <% @albums.each do |album| %>
                  <tr>
@@ -38,9 +39,16 @@
                      <%= image_tag url_for( album.galleries.first.images.first), data: {src: "#{rails_blob_url(album.galleries.first.images.first)}"},width: '50' %>
                      <% end %>
                    </td>
-                   <td><%= link_to svg('ico-eye.svg'), album, class: 'icon is-centered is-vcentered' %></td>
-                   <td>
-                     <%= link_to svg('ico-trash.svg'), album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %>
+                   <td class="has-text-centered"> 
+                    <% count = 0%>
+                    <% album.galleries.each {|gal| count += gal.images.length } %>
+                    <%= count %> 
+                   </td>
+                   <td></td>
+                   <td class="has-text-right is-centered is-vcentered">
+                    <%= link_to svg('ico-eye.svg'), album, class: 'icon' %> |
+                    <%= link_to svg('ico-edit.svg'), edit_album_path(album), class: 'icon' %> |
+                    <%= link_to svg('ico-trash.svg'), album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
                    </td>
                  </tr>
                  <% end %>

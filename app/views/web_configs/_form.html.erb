@@ -13,7 +13,12 @@
         </div>
       <% end %>
     <% end %>
-
+    <div class="field">
+      <%= form.label :language, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :language, class: 'input is-medium' %>
+      </div>
+    </div>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -22,14 +27,16 @@
             <%= form.file_field :logoweb, class: 'input is-medium' %>
           </div>
         </div>
-
         <div class="field">
           <%= form.label :enterprise_name, class: 'label' %>
           <div class="control">
             <%= form.text_field :enterprise_name, class: 'input is-medium' %>
           </div>
         </div>
-
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
         <div class="field">
           <%= form.label :url_web, class: 'label' %>
           <div class="control">
@@ -50,7 +57,10 @@
             <%= form.text_field :corporative_color, class: 'input is-medium' %>
           </div>
         </div>
-
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-body">
         <div class="field">
           <%= form.label :global_email, class: 'label' %>
           <div class="control">
@@ -81,6 +91,11 @@
             <%= form.text_field :adress_line_two, class: 'input is-medium' %>
           </div>
         </div>
+      </div>
+    </div>
+    
+    <div class="field is-horizontal">
+      <div class="field-body">
         <div class="field">
           <%= form.label :location, class: 'label' %>
           <div class="control">
@@ -160,13 +175,6 @@
           <%= form.label :meta_description, class: 'label' %>
           <div class="control">
             <%= form.text_area :meta_description, class: 'input is-medium' %>
-          </div>
-        </div>
-
-        <div class="field">
-          <%= form.label :language, class: 'label' %>
-          <div class="control">
-            <%= form.text_field :language, class: 'input is-medium' %>
           </div>
         </div>
       </div>

@@ -45,11 +45,13 @@ class WebController < ApplicationController
 
   def web_album
     @album = Album.find(params[:album_id])
+    @total_images = 0 
+    @album.galleries.each {|gal| @total_images += gal.images.length }
     @password = @album.password
 
     if params.has_key?(:password) && params[:password].length > 0 && params[:password] == @password
       @album = Album.find(params[:album_id])
-      @pagy, @galleries  = pagy(Album.find(params[:album_id]).galleries.all, items: 50)
+      @pagy, @galleries  = pagy(Album.find(params[:album_id]).galleries, items: 10)
     else
       redirect_to picmaton_path
     end
