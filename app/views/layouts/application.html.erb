@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
     <title>
         <%= WebConfig.first.enterprise_name.present? ? WebConfig.first.enterprise_name : 'cAppweb'  %>
@@ -16,17 +16,17 @@
   </head>
 
   <body>
-    <div class="app is-flex-direction-row mt-6">
+    <div class="app columns is-flex-direction-row mt-6 has-background-white-ter" >
       <%= render 'layouts/partials/admin_navbar' %> 
       <% if user_signed_in? %>
         <% if current_user.is_admin? || current_user.is_superadmin? %>
-          <div class="column is-2 is-pulled-left has-background-dark" style="margin: 0 !important; padding:0 !important;">
+          <div class="column is-2 is-pulled-left has-background-dark" style="margin: 0 !important; padding:0 !important; height:100%;">
             <%= render 'layouts/partials/admin_aside' %>
           </div>
         <% end %>
-        <section class="column is-10 is-pulled-left" style="margin: 0 !important; padding:0 !important;">
+        <section class="column is-10 is-pulled-left" style="margin: 0 !important; padding:0 !important;height:100%;">
       <% else %>
-        <section class="column is-12 is-pulled-left" style="margin: 0 !important; padding:0 !important;">
+        <section class="column is-12 is-pulled-left" style="margin: 0 !important; padding:0 !important;height:100%;">
       <% end %>
         <section class="section is-main-section has-background-dark-light">
           <div class="tile is-ancestor">

@@ -1,14 +1,9 @@
-<p id="notice"><%= notice %></p>
-
       <h4 class="panel-heading | subtitle is-4 | has-text-centered">
        Premios
       </h4>
 
-  <div class="card-content">
-    <div class="b-table has-pagination">
-      <%= link_to 'New Award', new_award_path, class: 'button is-primary is-small' %>
-      <div class="table-wrapper has-mobile-cards">
-        <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+  <%= render partial: 'shared/table_start' %>
+      <%= link_to 'New Award', new_award_path, class: 'button is-primary' %>
           <thead>
             <tr>
               <th class="title is-5">imagen</th>
@@ -33,9 +28,4 @@
               </tr>
               <% end %>
           </tbody>
-        </table>
-
-      </div>
-    </div>
-  </div>
-
+<%= render partial: 'shared/table_end' %>

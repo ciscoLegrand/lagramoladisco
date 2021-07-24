@@ -2,13 +2,10 @@
        Opiniones
       </h4>
 
-  <%= button_to 'Scrape', scrape_opinions_path, class: "button is-success is-hoverable is-small  mb-2 is-pulled-left" %>
 
 
-  <div class="card-content">
-    <div class="b-table has-pagination">
-      <div class="table-wrapper has-mobile-cards">
-        <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+          <%= render partial: 'shared/table_start' %>
+  <%= button_to 'Scrape', scrape_opinions_path, class: "button is-success is-hoverable   mb-2 is-pulled-left" %>
           <thead>
             <tr>
               <th class="title is-6">Titulo</th>
@@ -34,10 +31,4 @@
               </tr>
             <% end %>
           </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="py-5">
-      <%== pagy_bulma_nav(@pagy) %>
-    </div>
-  </div>
+<%= render partial: 'shared/table_end' %>

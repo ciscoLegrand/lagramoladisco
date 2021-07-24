@@ -1,7 +1,7 @@
 <h4 class="panel-heading | subtitle is-4 | has-text-centered">Sobre nosotros</h4>
-<%= link_to 'Nueva sección', new_about_path, class: "button is-primary is-hoverable mb-2" %>
-<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"> 
+  <%= render partial: 'shared/table_start' %>
   <thead>
+  <%= link_to 'Crear sección', new_about_path, class: "button is-primary is-hoverable mb-2" %>
     <tr>
       <th class="title is-5 has-text-centered">Nombre</th>
       <th class="title is-5 has-text-centered">Descripcion</th>
@@ -34,4 +34,4 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+  <%= render partial: 'shared/table_end'%>

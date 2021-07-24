@@ -1,10 +1,7 @@
-<div class="tile is-parent is-flex-direction-column">
+
   <h4 class="panel-heading | subtitle is-4 | has-text-centered">Home Banners</h4>
-    <div class="card-content">
-    <%= link_to 'Nuevo banner', new_home_banner_path, class: "button is-small  is-primary is-hoverable" %>
-    <div class="b-table has-pagination">
-      <div class="table-wrapper has-mobile-cards">
-        <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+  <%= render partial: 'shared/table_start'%>
+    <%= link_to 'Nuevo banner', new_home_banner_path, class: "button is-primary is-hoverable" %>
           <thead>
             <tr>
               <th class="title is-5 has-text-centered">Titulo</th>
@@ -12,30 +9,28 @@
               <th class="title is-5 has-text-centered">Visible</th>
               <th class="title is-5 has-text-centered">Parallax</th>
               <th class="title is-5 has-text-centered">Imagen</th>
-              <th class="title is-5 has-text-centered" colspan="3" >Acciones</th>
+              <th class="title is-5 has-text-right">Acciones</th>
             </tr>
           </thead>
 
           <tbody>
             <% @home_banners.each do |home_banner| %>
               <tr>
-                <td class="" style="width:15%;"> <%= home_banner.title %></td>
-                <td class="" style="width:40%;"><%= home_banner.body %></td>
-                <td class="has-text-centered" style="width:10%;"> <strong><%= home_banner.visible? ? 'Si' : 'No' %></strong></td>
-                <td class="has-text-centered" style="width:15%;"> <strong><%= home_banner.parallax? ? 'Activado' : 'Desactivado' %></strong></td>
-                <td class="" style="width:20%;"> 
+                <td class=""> <%= home_banner.title %></td>
+                <td class=""><%= home_banner.body %></td>
+                <td class="has-text-centered" > <strong><%= home_banner.visible? ? 'Si' : 'No' %></strong></td>
+                <td class="has-text-centered"> <strong><%= home_banner.parallax? ? 'Activado' : 'Desactivado' %></strong></td>
+                <td class="" > 
                   <% if home_banner.image.attached? %>
                     <%= image_tag url_for( home_banner.image), data: {src: "#{rails_blob_url(home_banner.image)}"}, width: '100' %>
                   <% end %>
                 </td>
-                <td><%= link_to svg('ico-eye.svg'), home_banner, class: 'icon is-centered is-vcentered' %></td>
-                <td><%= link_to svg('ico-edit.svg'), edit_home_banner_path(home_banner), class: 'icon is-centered is-vcentered' %></td>
-                <td><%= link_to svg('ico-trash.svg'), home_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
+                <td class="has-text-right is-centered is-vcentered">
+                    <%= link_to svg('ico-eye.svg'), home_banner, class: 'icon' %> |
+                    <%= link_to svg('ico-edit.svg'), edit_home_banner_path(home_banner), class: 'icon' %> |
+                    <%= link_to svg('ico-trash.svg'), home_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
+                </td>
               </tr>
             <% end %>
           </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+  <%= render partial: 'shared/table_end'%>

@@ -2,21 +2,8 @@
        Galerías
      </h4>
 
-     <div class="card is-child has-table has-mobile-sort-spaced">
-       <%= link_to 'New Album', new_album_path, class: "button is-primary is-hoverable is-small mr-2 mb-2 is-pulled-left" %>
-       <header class="card-header">
-         <p class="card-header-title">
-           <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-           Albums
-         </p>
-         <a href="#" class="card-header-icon">
-           <span class="icon"><i class="mdi mdi-reload"></i></span>
-         </a>
-       </header>
-       <div class="card-content">
-         <div class="b-table has-pagination">
-           <div class="table-wrapper has-mobile-cards">
-             <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+      <%= render partial: 'shared/table_start'%>
+       <%= link_to 'Crear Album', new_album_path, class: "button is-primary is-hoverable mr-2 mb-2" %>
                <thead>
                  <tr>
                    <th class="title is-5">Titulo</th>
@@ -53,8 +40,4 @@
                  </tr>
                  <% end %>
                </tbody>
-             </table>
-           </div>
-         </div>
-       </div>
-     </div>
+<%= render partial: 'shared/table_end'%>

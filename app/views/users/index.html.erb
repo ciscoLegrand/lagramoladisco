@@ -15,17 +15,7 @@
 </div>
 
 <div class="card has-table">
-  <header class="card-header">
-    <p class="card-header-title">
-    </p>
-    <a href="#" class="card-header-icon">
-      <span class="icon"><i class="mdi mdi-reload"></i></span>
-    </a>
-  </header>
-  <div class="card-content">
-    <div class="b-table has-pagination">
-      <div class="table-wrapper has-mobile-cards">
-        <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+          <%= render partial: 'shared/table_start' %>
           <thead>
           <tr>
             <th></th>
@@ -45,11 +35,4 @@
               </div>
             </div>
           </tbody>
-        </table>
-      </div>
-      <div class="" data-target="infinite-scroll.pagination">
-        <%== pagy_bulma_nav(@pagy) %>
-      </div>
-    </div>
-  </div>
-</div>
+          <%= render partial: 'shared/table_end' %>

@@ -1,17 +1,14 @@
-<p id="notice"><%= notice %></p>
+
   <h4 class="panel-heading | subtitle is-4 | has-text-centered"> Servicios </h4>
-  <div class="card-content">
-    <div class="b-table has-pagination">
-      <%= link_to 'New service', new_service_path, class: "button is-primary is-hoverable mb-2" %>  
-      <div class="table-wrapper has-mobile-cards">
-        <table class="table is-fullwidth is-striped is-hoverable is-sortable is-fullwidth">
+          <%= render partial: 'shared/table_start' %>
+          <%= link_to 'New service', new_service_path, class: "button is-primary is-hoverable mb-2" %>  
           <thead>
             <tr>
               <th class="title is-5">Nombre</th>
               <th class="title is-5">Descripcion</th>
               <th class="title is-5">Precio</th>
               <th class="title is-5">Portada</th>
-              <th colspan="3"></th>
+              <th ></th>
             </tr>
           </thead>
 
@@ -26,13 +23,13 @@
                     <%= image_tag url_for( service.image), data: {src: "#{rails_blob_url(service.image)}"},width: '50' %>
                   <% end %>
                 </td>
-                <td><%= link_to 'Show', service %></td>
-                <td><%= link_to 'Edit', edit_service_path(service) %></td>
-                <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="has-text-right is-centered is-vcentered">
+                  <%= link_to svg('ico-eye.svg'), service, class: 'icon' %> |
+                  <%= link_to svg('ico-edit.svg'), edit_service_path(service), class: 'icon' %> |
+                  <%= link_to svg('ico-trash.svg'), service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
+                </td>
+
               </tr>
             <% end %>
           </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+        <%= render partial: 'shared/table_end' %>

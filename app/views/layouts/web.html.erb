@@ -2,7 +2,7 @@
 <html >
   <head>
     <title>
-      lagramola <%#= WebConfig.first.enterprise_name.present? ? WebConfig.first.enterprise_name : 'cAppweb'  %>
+      <%= WebConfig.first.enterprise_name.present? ? WebConfig.first.enterprise_name : 'cAppweb'  %>
     </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
