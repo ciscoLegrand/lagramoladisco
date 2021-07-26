@@ -7,7 +7,9 @@
  @import "abstracts/bulma-variables";
  @import 'bulma';
 
-
+ is-hidden{
+   display:none;
+ }
 
 // trix editor
 trix-editor {

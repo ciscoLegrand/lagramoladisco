@@ -5,12 +5,12 @@
       <h2 class="title is-2 has-text-centered">Log in</h2>
       <div class="columns is-centered">
         <div class="column is-5-tablet is-8-desktop is-6-widescreen">
-          <div class="box has-background-white-ter">
+          <div class="box has-background-white">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field">
                 <%= f.label :email, class:'label' %>
                 <div class="control has-icons-right">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'input',placeholder: "e.g. camilo@gmail.com" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'input',placeholder: "e.g. example@gmail.com" %>
                   <span class="icon is-small is-right">
                     <i class="fa fa-envelope"></i>
                   </span>

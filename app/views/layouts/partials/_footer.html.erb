@@ -1,9 +1,21 @@
+<article class="message is-info" data-controller="notification">
+  <div class="message-body">
+    Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrar sus preferencias mediante el análisis de sus hábitos de navegación. 
+    Si continua navegando, consideramos que acepta su uso. Puede cambiar la configuración u obtener más información <%= link_to 'aquí', cookies_path%>     
+    <button class="button is-small is-primary" aria-label="delete" data-action="click->notification#hidden">Aceptar</button>
+  </div>
+</article>
 <footer class="is-large has-background-primary">
-  <div class="content px-2 py-2">
-    <div class="is-pulled-left">
-      <%= this_year %> <strong><%= WebConfig.first.enterprise_name if WebConfig.first.enterprise_name.present? %></strong> Todos los derechos reservados.
+  <div class="columns px-2 py-2">
+    <div class="column is-4 has-text-left">
+      <%= this_year %> <strong><%= WebConfig.first.enterprise_name if WebConfig.first.enterprise_name.present? %></strong> Servicios para Eventos en Galicia.
     </div>
-    <div class="is-pulled-right">
+    <div class="column is-4 has-text-centered">
+      <%= link_to 'Aviso legal', legal_path, class:'is-hoverable has-text-white' %> |
+      <%= link_to 'Política Privacidad', privacidad_path, class:'is-hoverable has-text-white' %> |
+      <%= link_to 'Cookies', cookies_path, class:'is-hoverable has-text-white'%>
+    </div>
+    <div class="column is-4 has-text-right">
       Desarrollado por <strong>creaDix</strong> 
     </div>
   </div>

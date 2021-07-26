@@ -28,13 +28,17 @@ Rails.application.routes.draw do
   resources :photos
   resources :quotes
  
-  get 'sobre-nosotros' => 'web#web_about_us' 
-  get 'picmaton' => 'web#web_albums'
+  match 'sobre-nosotros', to: 'web#web_about_us', via: :get
+  match 'picmaton', to: 'web#web_albums', via: :get
+  match 'contacto', to: 'web#web_contact',via: :get
+  match 'resultados', to: 'web#web_search_results', via: :get
+  match 'servicios', to: 'web#web_services', via: :get
+  match 'politica-de-cookies', to: 'web#web_aviso_cookies', as: 'cookies', via: :get
+  match 'aviso-legal', to: 'web#web_aviso_legal', as: 'legal', via: :get
+  match 'politica-de-privacidad', to: 'web#web_aviso_privacidad', as: 'privacidad', via: :get
+  match 'usuarios', to: 'users#index', via: :get
   get '/galeria/:album_id', to: 'web#web_album', as: 'galeria'
-  get 'resultados' => 'web#web_search_results'
-  get 'servicios' => 'web#web_services'
   get '/servicios/:service_id', to: 'web#web_service', as: 'servicio'
-  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 

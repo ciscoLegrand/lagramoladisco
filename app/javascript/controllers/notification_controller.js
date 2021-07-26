@@ -5,4 +5,8 @@ export default class extends Controller {
     close(){
         this.element.remove()
     }
+    
+    hidden(){
+        this.element.remove()
+    }
 }

@@ -8,78 +8,8 @@
   </div> 
 </section>
     
-    <section class="hero has-background-white-ter" id="contact-us">
-      <div class="hero-body">
-        <div class="container">
-          <div class="container my-5 mt-5 mx-5 px-5">
-            <h2 class="title is-2 is-5-touch has-text-centered is-capitalized">Contactanos</h2>
-            <%= form_with(model: @contact, local: true, html: {class: 'box'}) do |form| %>
-              <% if @contact.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this opinion from being saved:</h2>
-                  <ul>
-                    <% @contact.errors.each do |error| %>
-                      <li><%= error.full_message %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
-              <div class="field">
-                  <%= form.label 'Asunto', class:'label is-size-4 has-text-weight-light' %>
-                <div class="control has-icons-left">
-                  <%= form.text_field :title, class: 'input', placeholder: 'asunto' %>
-                  <span class="icon is-left pl-2" style='width:24px;' >
-                    <%= svg('ico-comment-solid.svg')%>
-                  </span>
-                </div>
-              </div>
-              <div class="field">
-                  <%= form.label 'Mensaje', class:'label is-size-4 has-text-weight-light' %>
-                <div class="control has-icons-left">
-                  <%= form.text_area :body, class: 'textarea', placeholder: 'mensaje' %>
-                </div>
-              </div>
-              <div class="field">
-                  <%= form.label 'Email', class:'label is-size-4 has-text-weight-light' %>
-                <div class="control has-icons-left">
-                  <%= form.text_field :email, class: 'input', placeholder: 'example@example.com' %>
-                  <span class="icon is-left pl-2" style='width:24px;'>
-                    <%= svg('ico-at-symbol.svg')%>
-                  </span>
-                </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <%= form.submit :enviar, class: 'button is-primary' %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <h4 class="subtitle is-size-4 is-size-4-mobile has-text-centered">Para cualquier consulta nos puedes encontrar en: <%= WebConfig.first.contact_phone if WebConfig.first.contact_phone.present? %> y también en <%= WebConfig.first.global_email if WebConfig.first.global_email.present? %></h4>
-          <div class="columns box is-justify-content-center">
-            <div class="column is-6 is-vcentered">
-              <div class="direccion">
-                <h3 class="subtitle is-size-3 is-size-4-mobile has-text-centered"> <%= "#{WebConfig.first.adress_line_one}, #{WebConfig.first.postal_code}, #{WebConfig.first.location}"%></h3>
-              </div>
-              <h2  class="subtitle is-size-4 is-size-4-mobile has-text-centered">O contacta con nosotros a través de nuestras redes sociales</h2>
-              <div class="social-media is-justify-content-center">
-                <%= link_to ("https://api.whatsapp.com/send?phone=#{WebConfig.first.contact_phone}" if WebConfig.first.contact_phone.present?), class: 'mr-3' do %>    
-                  <figure class="icon is-medium has-text-primary">
-                    <%= svg('ico-whatsapp.svg')%>
-                  </figure>
-                <% end %>   
-                <%= render(SocialLinkComponent.new(href: WebConfig.first.url_facebook, name: 'facebook',ico: 'ico-facebook.svg'))%>
-                <%= render(SocialLinkComponent.new(href: WebConfig.first.url_instagram, name: 'instagram',ico: 'ico-instagram.svg'))%>
-                <%= render(SocialLinkComponent.new(href: WebConfig.first.url_twitter, name: 'tiwtter',ico: 'ico-twitter.svg'))%>
-                <%= render(SocialLinkComponent.new(href: WebConfig.first.url_pinterest, name: 'pinterest',ico: 'ico-pinterest.svg'))%>
-                <%= render(SocialLinkComponent.new(href: WebConfig.first.url_bodas_net, name: 'bodas_net',ico: 'ico-bodasnet.svg'))%>
-              </div>               
-            </div> 
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="hero has-background-white-ter">
+    <%= render template: 'contacts/new' %>
+    <section class="hero ">
       <div class="column is-12">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5848.653612042021!2d-8.546298440585097!3d42.86594587559381!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8ba8d0a9fc0bcfa7!2sDiscoteca%20Movil%20La%20Gramola!5e0!3m2!1ses!2ses!4v1627126621042!5m2!1ses!2ses" 

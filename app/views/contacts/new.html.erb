@@ -1,9 +1,8 @@
-    <section class="hero has-background-white-ter" id="contact-us">
+    <section class="hero " id="contact-us">
       <div class="hero-body">
         <div class="container">
           <div class="container my-5 mt-5 mx-5 px-5">
-            <h2 class="title is-2 is-5-touch has-text-centered is-capitalized">Contactanos</h2>
-            <%= form_with(model: @contact, local: true, html: {class: 'box'}) do |form| %>
+            <%= form_with(model: @contact, local: true, html: {class: 'box has-background-white-ter'}) do |form| %>
               <% if @contact.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this opinion from being saved:</h2>
@@ -46,13 +45,13 @@
             <% end %>
           </div>
           <h4 class="subtitle is-size-4 is-size-4-mobile has-text-centered">Para cualquier consulta nos puedes encontrar en: <%= WebConfig.first.contact_phone if WebConfig.first.contact_phone.present? %> y también en <%= WebConfig.first.global_email if WebConfig.first.global_email.present? %></h4>
-          <div class="columns box is-justify-content-center">
+          <div class="container my-5 mt-5 mx-5 px-5 columns box is-justify-content-center has-background-white-ter">
             <div class="column is-6 is-vcentered">
               <div class="direccion">
                 <h3 class="subtitle is-size-3 is-size-4-mobile has-text-centered"> <%= "#{WebConfig.first.adress_line_one}, #{WebConfig.first.postal_code}, #{WebConfig.first.location}"%></h3>
               </div>
               <h2  class="subtitle is-size-4 is-size-4-mobile has-text-centered">O contacta con nosotros a través de nuestras redes sociales</h2>
-              <div class="social-media is-justify-content-center">
+              <div class="social-media is-flex  is-justify-content-center">
                 <%= link_to ("https://api.whatsapp.com/send?phone=#{WebConfig.first.contact_phone}" if WebConfig.first.contact_phone.present?), class: 'mr-3' do %>    
                   <figure class="icon is-medium has-text-primary">
                     <%= svg('ico-whatsapp.svg')%>
