@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :web_configs
   root 'web#web_home'
   
+  resources :contacts, only: [:create, :new]
+
   resources :albums do
     resources :galleries
   end
@@ -17,7 +19,9 @@ Rails.application.routes.draw do
   resources :services do 
     resources :service_items
   end
-
+  
+  resources :contacts, only: [:create, :new]
+  post "/contacts/new"
   resources :abouts
   resources :awards
   resources :home_banners
@@ -30,11 +34,7 @@ Rails.application.routes.draw do
   get 'resultados' => 'web#web_search_results'
   get 'servicios' => 'web#web_services'
   get '/servicios/:service_id', to: 'web#web_service', as: 'servicio'
-  get 'contacto' => 'web#web_contact'
   
-  get 'users/index'
-  match '/users',   to: 'users#index',   via: 'get'
- 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 

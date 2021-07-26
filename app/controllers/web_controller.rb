@@ -58,5 +58,6 @@ class WebController < ApplicationController
   end 
   
   def web_contact
+    @contact = Contact.new
   end
 end

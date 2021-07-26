@@ -63,3 +63,4 @@ gem 'kimurai', '~> 1.4'
 
 gem 'aws-sdk-s3'
 gem 'pagy'
+gem 'inline_svg'

@@ -15,7 +15,7 @@
           <%= link_to 'Quines Somos', sobre_nosotros_path , class: "navbar-item is-size-5" %>
           <%= link_to 'Servicios', servicios_path, class: "navbar-item is-size-5" %>          
           <%= link_to 'Picmaton', picmaton_path, class: "navbar-item is-size-5" %>    
-          <%= link_to 'Contacto', contacto_path, class: "navbar-item is-size-5" %>
+          <%= link_to 'Contacto', new_contact_path, class: "navbar-item is-size-5" %>
           <% if user_signed_in? %>
             <% if current_user.role == 'admin' || current_user.role == 'superadmin'  %>
               <%= link_to 'Panel Admin', albums_path, class: "navbar-item is-size-5" %>
