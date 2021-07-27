@@ -8,8 +8,8 @@ class InfoMailer < ApplicationMailer
   def form_contact(contact)
     @correo = Contact.find(contact.id)
     # raise @correo.to_json
-    @greeting = " #{ contact.email } quiere ponerse en contacto"
+    @greeting = "#{contact.email}:  #{ contact.title }"
     # =>  destinatario del correo  , quien envia el correo
-    mail(to: "cisco.glez@gmail.com", subject: @greeting)
+    mail( to: WebConfig.first.global_email,from: contact.email, subject: @greeting)
   end
 end
