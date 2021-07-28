@@ -5,6 +5,8 @@ class WebController < ApplicationController
     @banner_tres = HomeBanner.third
     @awards = Award.first
     @opinions = Opinion.all
+    @abouts = About.all
+    @about = @abouts.first
   end 
 
   def web_about_us

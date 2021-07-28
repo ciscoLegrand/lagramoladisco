@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :verify_authenticity_token
   # before_action :masquerade_user!
-
+  before_action :set_services
   
   def set_locale
     if user_signed_in?
@@ -32,5 +32,9 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :address, :province, :cod_postal, :phone, :language])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name,:last_name, :address, :province, :cod_postal, :phone, :dni, :avatar, :language])
+  end
+
+  def set_services
+    @services = Service.all
   end
 end
