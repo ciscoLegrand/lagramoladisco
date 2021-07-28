@@ -1,2 +1,15 @@
 <div class="title is-3"><%= @correo.title%></div>
+<hr class="has-background-primary">
 <div class="is-size-5"><%= @correo.body %></div>  
+
+<hr class="has-background-primary">
+
+<div class="is-size-5">NOMBRE: <%= @correo.name if @correo.name.present? %> </div>
+<div class="is-size-5">EMAIL: <%= @correo.email if @correo.email.present?%> </div>
+<div class="is-size-5">TELÉFONO:  <%= @correo.phone if @correo.phone.present?%> </div>
+<div class="is-size-5">FECHA DEL EVENTO: <%= @correo.date_event if @correo.date_event.present?%> </div>
+<div class="is-size-5">RESTAURANTE: <%= @correo.restaurant_name if @correo.restaurant_name.present?%> </div>
+<div class="is-size-5"> <%#= @correo.services_name if @correo.services_name.present?%> </div>
+<div class="is-size-5"> <%#= @correo.additional_services if @correo.additional_services.present?%> </div>
+<hr class="has-background-primary">
+<div class="is-size-5">DONDE NOS CONOCIERON: <%= @correo.observations_info if @correo.observations_info.present?%> </div>

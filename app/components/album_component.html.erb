@@ -2,7 +2,7 @@
 <div class="column is-6-tablet is-3-widescreen is-3-fullhd is-3-half-desktop is-12-mobile ">
   <div class="cards is-clickable">
       <div class="card-image">
-        <figure class="image is-4by5">
+        <figure class="image is-4by3">
           <% if @albums.galleries.present? && @albums.galleries.first.images.attached? %>
             <%= image_tag url_for( @albums.galleries.first.images.first), data: {src: "#{rails_blob_url(@albums.galleries.first.images.first)}"}%>
           <% end %>
@@ -11,8 +11,8 @@
       <div class="gallery-content">
         <div class="media is-vcentered">
           <div class="media-content  ">
-            <p class="title is-size-3 is-size-4-mobile has-text-white | mt-3 | album"><%= "#{@albums.title}" %></p>
-            <p class="subtitle is-size-4 is-size-5-mobile has-text-white | album"><time datetime="<%= @albums.date_event %>"><%= @albums.date_event.strftime("%d-%m-%Y") %></time></p>
+            <p class="title is-size-4 is-size-5-touch has-text-white | mt-3 | album"><%= "#{@albums.title}" %></p>
+            <p class="subtitle is-size-4 is-size-6-touch has-text-white | album"><time datetime="<%= @albums.date_event %>"><%= @albums.date_event.strftime("%d-%m-%Y") %></time></p>
             <%= form_tag galeria_path(@albums), method: :get do %>
               <div class="field has-addons is-justify-content-center">
                 <div class="control">

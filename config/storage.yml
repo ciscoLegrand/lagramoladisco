@@ -1,10 +1,10 @@
-test:
-  service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
+# test:
+#   service: Disk
+#   root: <%= Rails.root.join("tmp/storage") %>
 
-local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
+# local:
+#   service: Disk
+#   root: <%= Rails.root.join("storage") %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
@@ -19,11 +19,11 @@ spaces:
   # access_key_id: <%= Rails.application.credentials.dig(:spaces, :access_key_id) %>     
   # secret_access_key: <%= Rails.application.credentials.dig(:spaces, :secret_access_key) %>
   # bucket: <%= Rails.application.credentials.dig(:spaces, :bucket) %>   
-  access_key_id: NMM52PAZI3ZTLWREBEMG
-  secret_access_key: BRBC1txnvaDioyJtw6EdrbQAEAf8d0bGsCX+vOO2y4M
-  bucket: gramola 
-  region: fra1
-  endpoint: https://fra1.digitaloceanspaces.com
+  access_key_id: <%= ENV['SPACES_DO_ACCESS_KEY'] %>
+  secret_access_key: <%= ENV['SPACES_DO_ACCESS_KEY_SECRET'] %>
+  bucket:  <%= ENV['SPACES_DO_BUCKET'] %>
+  region: <%= ENV['SPACES_DO_REGION'] %>
+  endpoint: <%= ENV['SPACES_DO_ENDPOINT'] %>
 
 
 
