@@ -79,7 +79,7 @@ WebConfig.create(
   url_web: 'creadix.es', 
   cif: '', 
   corporative_color: '', 
-  global_email:'creadix@craedix.es', 
+  global_email:'creadix@creadix.es', 
   contact_phone:'625650792',
   adress_line_one:'Rúa do Restollal, 37',
   adress_line_two:'',
