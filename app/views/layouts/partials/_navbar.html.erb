@@ -12,9 +12,12 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start is-centered">          
           <%= link_to 'Inicio', root_path, class: "navbar-item is-size-5" %>          
-          <%= link_to 'Quienes Somos', sobre_nosotros_path , class: "navbar-item is-size-5" %>
-          <%= link_to 'Servicios', servicios_path, class: "navbar-item is-size-5" %>          
-          <%= link_to 'Picmaton', picmaton_path, class: "navbar-item is-size-5" %>    
+          <%#= link_to 'Quienes Somos', sobre_nosotros_path , class: "navbar-item is-size-5" %>
+          <% @services.order(name: 'asc').each do |service| %>
+            <%= link_to service.name, servicio_path(service), class: "navbar-item is-size-5" %> 
+          <% end %>
+                      
+          <%#= link_to 'Picmaton', picmaton_path, class: "navbar-item is-size-5" %>    
           <%= link_to 'Contacto', contacto_path, class: "navbar-item is-size-5" %>
           <% if user_signed_in? %>
             <% if current_user.role == 'admin' || current_user.role == 'superadmin'  %>

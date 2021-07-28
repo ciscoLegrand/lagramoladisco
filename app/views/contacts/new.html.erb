@@ -38,19 +38,13 @@
                   </div>
                 </div>
               </div>
-              <% if 1 == 0 %>
+              <%# if 1 == 0 %>
                 <!--TODO: configurar estos cmapos-->
                 <div class="field is-horizontal">
                   <div class="field-body is-flex is-justify-content-space-between">
                     <div class="control">
                       <div class="select">
-                        <select>
-                          <option>Cabinas</option>
-                          <option value="gramola">Gramola</option>
-                          <option value="carro">Carro</option>
-                          <option value="t1">T1</option>
-                          <option value="vw">VW</option>
-                        </select>
+                        <%= form.collection_select(:service_name, ServiceItem.where(service_id: 1 ).all, :name, :name, prompt:'Cabinas') %>
                       </div>
                     </div>
               
@@ -65,18 +59,14 @@
 
                     <div class="control">
                       <div class="select">
-                        <select>
-                          <option>+ Servicios</option>
-                          <option value="picma">Fotomatón</option>
-                          <option value="gramokids">Animación infantil</option>
-                          <option value="neongal">Neones</option>
-                          <option value="jbx">Luces decorativas jbx</option>
-                        </select>
+                     <div class="select">
+                        <%= form.collection_select(:additional_services, Service.all, :name, :name, prompt:'Otros Servicios') %>
+                      </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              <% end %>
+              <%# end %>
               <div class="field"> 
                 <%= form.label 'Asunto', class:'label is-size-4 has-text-weight-light' %>
                 <div class="control has-icons-left">

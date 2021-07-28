@@ -1,11 +1,11 @@
       <h4 class="panel-heading | subtitle is-4 | has-text-centered">
        Opiniones
       </h4>
+  <%= button_to 'Scrape', scrape_opinions_path, class: "button is-success is-hoverable   mb-2 is-pulled-left" %>
 
 
 
           <%= render partial: 'shared/table_start' %>
-  <%= button_to 'Scrape', scrape_opinions_path, class: "button is-success is-hoverable   mb-2 is-pulled-left" %>
           <thead>
             <tr>
               <th class="title is-6">Titulo</th>
