@@ -122,12 +122,12 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: ENV['DOMAIN'], port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['SMTP_DOMAIN'], port: 3000 }
   config.action_mailer..delivery_method = :smtp 
   config.action_mailer.smtp_settings = { 
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               ENV['DOMAIN'],
+    domain:               ENV['SMTP_DOMAIN'],
     user_name:            ENV['GMAIL_ACCOUNT'],
     password:             ENV['GMAIL_PASS'],
     authentication:       'plain'
