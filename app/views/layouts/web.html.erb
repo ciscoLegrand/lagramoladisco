@@ -18,6 +18,14 @@
     <% flash.each do |type, data| %>
       <%= render NotificationComponent.new(type: type, data: data) %>
     <% end %>
+    
+    <% unless @home %>
+      <h1 class="title is-1 has-background-primary has-text-centered has-text-white py-2">
+        <%= render_breadcrumbs %>
+      </h1>
+    <% end %>
+    
+      
     <%= yield %>
     <%= render 'layouts/partials/footer' %>
   </body>

@@ -1,5 +1,6 @@
 class WebController < ApplicationController
   def web_home
+    @home = true
     @banner_uno = HomeBanner.first
     @banner_dos = HomeBanner.second
     @banner_tres = HomeBanner.third
@@ -14,15 +15,19 @@ class WebController < ApplicationController
     @about = @abouts.first
   end
 
+
   def web_services
+    add_breadcrumb 'Servicios', servicios_path
     @services = Service.all
   end
 
   def web_service
     @service = Service.find(params[:service_id])
+    add_breadcrumb @service.name, servicio_path
   end
-  
+
   def web_search_results
+    add_breadcrumb "Albumes", resultados_path
     if params.has_key?(:title) && params[:title].length > 0
       @albums = Album.title(params[:title])
     else
@@ -31,6 +36,7 @@ class WebController < ApplicationController
   end
   
   def web_albums
+    add_breadcrumb "Galerias", galerias_path
     if params.has_key?(:title) && params[:title].length > 0
       @albums = Album.title(params[:title])
     else
@@ -47,6 +53,7 @@ class WebController < ApplicationController
 
   def web_album
     @album = Album.find(params[:album_id])
+    add_breadcrumb @album.title, galeria_path(@album)
     @total_images = 0 
     @album.galleries.each {|gal| @total_images += gal.images.length }
     @password = @album.password
@@ -60,6 +67,7 @@ class WebController < ApplicationController
   end 
   
   def web_contact
+    add_breadcrumb 'Contacto', contacto_path
     @contact = Contact.new
   end
 end

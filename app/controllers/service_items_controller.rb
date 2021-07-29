@@ -1,6 +1,8 @@
 class ServiceItemsController < ApplicationController
   before_action :set_service
-
+  def show
+    @service_item = @service.service_items.find(params[:id])
+  end
   def create
    @service_item = @service.service_items.create(service_item_params)
    redirect_to @service

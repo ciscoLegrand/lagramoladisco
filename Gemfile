@@ -65,3 +65,4 @@ gem 'aws-sdk-s3'
 gem 'pagy'
 gem 'inline_svg'
 gem 'acts_as_list'
+gem "breadcrumbs_on_rails"

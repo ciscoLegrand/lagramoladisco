@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :quotes
  
   match 'sobre-nosotros', to: 'web#web_about_us', via: :get
-  match 'picmaton', to: 'web#web_albums', via: :get
+  match 'galerias', to: 'web#web_albums', via: :get
   match 'contacto', to: 'web#web_contact',via: :get
   match 'resultados', to: 'web#web_search_results', via: :get
   match 'servicios', to: 'web#web_services', via: :get
