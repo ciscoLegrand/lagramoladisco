@@ -19,6 +19,12 @@ Rails.application.routes.draw do
   resources :services do 
     resources :service_items
   end
+
+  resources :service_items do
+    collection do
+      patch :sort
+    end
+  end
   
   resources :contacts, only: [:create, :new]
   post "/contacts/new"
