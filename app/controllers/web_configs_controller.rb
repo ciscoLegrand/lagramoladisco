@@ -3,7 +3,7 @@ class WebConfigsController < ApplicationController
 
   # GET /web_configs or /web_configs.json
   def index
-    # @web_configs = WebConfig.all
+    add_breadcrumb 'Configuración general'
     @web_config = WebConfig.first
   end
 

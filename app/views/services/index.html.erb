@@ -1,35 +1,36 @@
+<div class="box">
+  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
+    <%= link_to 'New service', new_service_path, class: "button is-primary is-hoverable mb-2" %>  
+    <thead>
+      <tr>
+        <th class="title is-5">Nombre</th>
+        <th class="title is-5">Descripcion</th>
+        <th class="title is-5">Precio</th>
+        <th class="title is-5">Portada</th>
+        <th ></th>
+      </tr>
+    </thead>
 
-  <h4 class="panel-heading | subtitle is-4 | has-text-centered"> Servicios </h4>
-          <%= render partial: 'shared/table_start' %>
-          <%= link_to 'New service', new_service_path, class: "button is-primary is-hoverable mb-2" %>  
-          <thead>
-            <tr>
-              <th class="title is-5">Nombre</th>
-              <th class="title is-5">Descripcion</th>
-              <th class="title is-5">Precio</th>
-              <th class="title is-5">Portada</th>
-              <th ></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @services.each do |service| %>
-              <tr>
-                <td> <%= service.name %></td>
-                <td> <%= service.description %></td>
-                <td class="has-text-centered"> <%= service.price%> </td>
-                <td> 
-                  <% if service.image.attached? %>
-                    <%= image_tag url_for( service.image), data: {src: "#{rails_blob_url(service.image)}"},width: '50' %>
-                  <% end %>
-                </td>
-                <td class="has-text-right is-centered is-vcentered">
-                  <%= link_to svg('ico-eye.svg'), service, class: 'icon' %> |
-                  <%= link_to svg('ico-edit.svg'), edit_service_path(service), class: 'icon' %> |
-                  <%= link_to svg('ico-trash.svg'), service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
-                </td>
-
-              </tr>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td> <%= service.name %></td>
+          <td> <%= service.description %></td>
+          <td class="has-text-centered"> <%= service.price%> </td>
+          <td> 
+            <% if service.image.attached? %>
+              <%= image_tag url_for( service.image), data: {src: "#{rails_blob_url(service.image)}"},width: '50' %>
             <% end %>
-          </tbody>
-        <%= render partial: 'shared/table_end' %>
+          </td>
+          <td class="has-text-right is-centered is-vcentered">
+            <%= link_to svg('ico-eye.svg'), service, class: 'icon' %> |
+            <%= link_to svg('ico-edit.svg'), edit_service_path(service), class: 'icon' %> |
+            <%= link_to svg('ico-trash.svg'), service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%== pagy_bulma_nav(@pagy) if @pagy.present? %>
+</div>

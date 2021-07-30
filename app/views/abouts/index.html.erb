@@ -1,37 +1,39 @@
-<h4 class="panel-heading | subtitle is-4 | has-text-centered">Sobre nosotros</h4>
-  <%= render partial: 'shared/table_start' %>
-  <thead>
-  <%= link_to 'Crear sección', new_about_path, class: "button is-primary is-hoverable mb-2" %>
-    <tr>
-      <th class="title is-5 has-text-centered">Nombre</th>
-      <th class="title is-5 has-text-centered">Descripcion</th>
-      <th class="title is-5 has-text-centered">Visible</th>
-      <th class="title is-5 has-text-centered">Portada</th>
-      <th class="title is-5 has-text-centered" colspan="3" >Acciones</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @abouts.each do |about| %>
+<div class="box">
+  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
+    <thead>
+    <%= link_to 'Crear sección', new_about_path, class: "button is-primary is-hoverable mb-2" %>
       <tr>
-        <td> <%= about.name %></td>
-        <td>       
-          <ul>
-            <li><%= about.content1 %></li>
-            <li><%= about.content2 %></li>
-            <li><%= about.content3 %></li>
-          </ul> 
-        </td>
-        <td class="has-text-centered"> <strong><%= about.visible? ? 'Si' : 'No' %></strong></td>
-        <td> 
-          <% if about.image.attached? %>
-            <%= image_tag url_for( about.image), data: {src: "#{rails_blob_url(about.image)}"}, width: '100' %>
-          <% end %>
-        </td>
-        <td><%= link_to svg('ico-eye.svg'), about, class: 'icon is-centered is-vcentered' %></td>
-        <td><%= link_to svg('ico-edit.svg'), edit_about_path(about), class: 'icon is-centered is-vcentered' %></td>
-        <td><%= link_to svg('ico-trash.svg'), about, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
+        <th class="title is-5 has-text-centered">Nombre</th>
+        <th class="title is-5 has-text-centered">Descripcion</th>
+        <th class="title is-5 has-text-centered">Visible</th>
+        <th class="title is-5 has-text-centered">Portada</th>
+        <th class="title is-5 has-text-centered" colspan="3" >Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-  <%= render partial: 'shared/table_end'%>
+    </thead>
+
+    <tbody>
+      <% @abouts.each do |about| %>
+        <tr>
+          <td> <%= about.name %></td>
+          <td>       
+            <ul>
+              <li><%= about.content1 %></li>
+              <li><%= about.content2 %></li>
+              <li><%= about.content3 %></li>
+            </ul> 
+          </td>
+          <td class="has-text-centered"> <strong><%= about.visible? ? 'Si' : 'No' %></strong></td>
+          <td> 
+            <% if about.image.attached? %>
+              <%= image_tag url_for( about.image), data: {src: "#{rails_blob_url(about.image)}"}, width: '100' %>
+            <% end %>
+          </td>
+          <td><%= link_to svg('ico-eye.svg'), about, class: 'icon is-centered is-vcentered' %></td>
+          <td><%= link_to svg('ico-edit.svg'), edit_about_path(about), class: 'icon is-centered is-vcentered' %></td>
+          <td><%= link_to svg('ico-trash.svg'), about, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -4,6 +4,7 @@ class HomeBannersController < ApplicationController
 
   # GET /home_banners or /home_banners.json
   def index
+    add_breadcrumb 'Banners Inicio'
     @home_banners = HomeBanner.all
   end
 

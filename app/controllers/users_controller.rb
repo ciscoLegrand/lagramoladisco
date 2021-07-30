@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   def index
+    add_breadcrumb 'Usuarios'
     result = User.order(params[:sort])
     @pagy, @users = pagy(result, items: 10)
 

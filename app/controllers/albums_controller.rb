@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   
   # GET /albums or /albums.json
   def index
+    add_breadcrumb 'Galerías'
     @albums = Album.all
 
 

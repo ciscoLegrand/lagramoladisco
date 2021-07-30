@@ -4,6 +4,7 @@ class AboutsController < ApplicationController
 
   # GET /abouts or /abouts.json
   def index
+    add_breadcrumb 'Sobre nosotros'
     @abouts = About.all
   end
 

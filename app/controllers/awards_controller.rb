@@ -4,6 +4,7 @@ class AwardsController < ApplicationController
 
   # GET /awards or /awards.json
   def index
+    add_breadcrumb 'Premios'
     @awards = Award.first
   end
 

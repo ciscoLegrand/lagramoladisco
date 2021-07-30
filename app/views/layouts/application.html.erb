@@ -16,34 +16,23 @@
   </head>
 
   <body>
-    <div class="app columns is-flex-direction-row mt-6 has-background-white-ter" >
-      <%= render 'layouts/partials/admin_navbar' %> 
-      <% if user_signed_in? %>
-        <% if current_user.is_admin? || current_user.is_superadmin? %>
-          <div class="column is-2 is-pulled-left has-background-dark" style="margin: 0 !important; padding:0 !important; height:100%;">
-            <%= render 'layouts/partials/admin_aside' %>
-          </div>
-        <% end %>
-        <section class="column is-10 is-pulled-left" style="margin: 0 !important; padding:0 !important;height:100%;">
-      <% else %>
-        <section class="column is-12 is-pulled-left" style="margin: 0 !important; padding:0 !important;height:100%;">
-      <% end %>
-        <section class="section is-main-section has-background-dark-light">
-          <div class="tile is-ancestor">
-            <div class="tile is-parent is-flex-direction-column">
-              <% flash.each do |type, data| %>
-                <%= render NotificationComponent.new(type: type, data: data) %>
-              <% end %>
-              <!-- cuerpo yield ruby-->
-              <%= yield %>
-              <!-- fin cuerpo yield ruby-->
-            </div>
-          </div>
+      <%#= render 'layouts/partials/admin_navbar' %> 
+    <div class="columns is-fullheight has-background-white-ter m-0 is-full-height">
+      <%= render 'layouts/partials/admin_aside' if (user_signed_in? and current_user.is_admin?) %>
+      <main class="column  <%= user_signed_in? ? 'is-10 is-offset-2 p-0' : 'is-12' %> is-8-touch is-vcentered" >
+        <header class="header">
+          <h1 class="panel-heading | subtitle is-4 | has-text-centered"><%= render_breadcrumbs separator: ' > '%></h1>           
+          <%  flash.each do |type, data| %>
+            <%= render NotificationComponent.new(type: type, data: data)  if current_user.present? %>
+          <% end %> 
+        </header>
+        <!-- cuerpo yield ruby-->
+        <section class="section">
+          <%= yield %>
         </section>
-      </section>
-      <%= render 'layouts/partials/footer' %>
-    </div>
-
-          
+        <!-- fin cuerpo yield ruby-->
+        <%= render 'layouts/partials/footer' %>
+      </main>
+    </div>          
   </body>
 </html>

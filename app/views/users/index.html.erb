@@ -1,38 +1,36 @@
-      <h4 class="panel-heading | subtitle is-4 | has-text-centered">
-       Usuarios 
-      </h4>
-      <div class="box">
-  <%= form_tag usuarios_path, method: :get, class: 'is-pulled-right' do %>
-    <div class="field has-addons " >
-      <div class="control">
-        <%= text_field_tag :name, params[:name], class: 'input is-medium' %>
-      </div>
-      <div class="control">
-        <%= submit_tag :buscar, :name => nil, class: 'button is-medium is-primary' %>
+
+<%= form_tag usuarios_path, method: :get, class: 'is-pulled-right' do %>
+  <div class="field has-addons " >
+    <div class="control">
+      <%= text_field_tag :name, params[:name], class: 'input is-medium' %>
+    </div>
+    <div class="control">
+      <%= submit_tag :buscar, :name => nil, class: 'button is-medium is-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<div class="box">
+<table class="table is-striped is-hoverable is-sortable is-fullwidth">
+  <thead>
+  <tr>
+    <th></th>
+    <th class="title is-5"> <%= link_to 'Nombre', sort: :name %> </th>
+    <th class="title is-5"><%= link_to 'Apellido', sort: :last_name %></th>
+    <th class="title is-5">Telefono</th>
+    <th class="title is-5">Email</th>
+    <th class="title is-5">Registro</th>
+    <th class="title is-5"><%= link_to 'Rol', sort: :role %></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+      <div data-target="infinite-scroll.users">
+        <%= render 'users' %>
       </div>
     </div>
-  <% end %>
+  </tbody>
+</table>
+<%== pagy_bulma_nav(@pagy) if @pagy.present? %>
 </div>
-
-<div class="card has-table">
-          <%= render partial: 'shared/table_start' %>
-          <thead>
-          <tr>
-            <th></th>
-            <th class="title is-5"> <%= link_to 'Nombre', sort: :name %> </th>
-            <th class="title is-5"><%= link_to 'Apellido', sort: :last_name %></th>
-            <th class="title is-5">Telefono</th>
-            <th class="title is-5">Email</th>
-            <th class="title is-5">Registro</th>
-            <th class="title is-5"><%= link_to 'Rol', sort: :role %></th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-            <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
-              <div data-target="infinite-scroll.users">
-                <%= render 'users' %>
-              </div>
-            </div>
-          </tbody>
-          <%= render partial: 'shared/table_end' %>

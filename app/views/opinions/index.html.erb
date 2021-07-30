@@ -1,34 +1,34 @@
-      <h4 class="panel-heading | subtitle is-4 | has-text-centered">
-       Opiniones
-      </h4>
-  <%= button_to 'Scrape', scrape_opinions_path, class: "button is-success is-hoverable   mb-2 is-pulled-left" %>
 
 
 
-          <%= render partial: 'shared/table_start' %>
-          <thead>
-            <tr>
-              <th class="title is-6">Titulo</th>
-              <th class="title is-6">Opinion</th>
-              <th class="title is-6">Puntuacion</th>
-              <th class="title is-6">Autor</th>
-              <th class="title is-6">Fecha</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
+<div class="box">
+  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
+    <%= button_to 'Scrape', scrape_opinions_path, class: "button is-success is-hoverable   mb-2 is-pulled-left" %>
+    <thead>
+      <tr>
+        <th class="title is-6">Titulo</th>
+        <th class="title is-6">Opinion</th>
+        <th class="title is-6">Puntuacion</th>
+        <th class="title is-6">Autor</th>
+        <th class="title is-6">Fecha</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-          <tbody>
-            <% @opinions.each do |opinion| %>
-              <tr>
-                <td class="truncate td-is-3"><%= opinion.title %></td>
-                <td class="truncate td-is-3"><%= opinion.body %></td>
-                <td class="truncate td-is-3"><%= opinion.ratingStar %></td>
-                <td class="truncate td-is-3"><%= opinion.name %></td>
-                <td class="truncate td-is-3"><%= opinion.wedding_date %></td>
-                <td ><%= link_to svg('ico-eye.svg'), opinion, class: 'icon is-centered is-vcentered' %></td>
-                <td ><%= link_to svg('ico-edit.svg'), edit_album_path(opinion), class: 'icon is-centered is-vcentered' %></td>
-                <td ><%= link_to svg('ico-trash.svg'), opinion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
-              </tr>
-            <% end %>
-          </tbody>
-<%= render partial: 'shared/table_end' %>
+    <tbody>
+      <% @opinions.each do |opinion| %>
+        <tr>
+          <td class="truncate td-is-3"><%= opinion.title %></td>
+          <td class="truncate td-is-3"><%= opinion.body %></td>
+          <td class="truncate td-is-3"><%= opinion.ratingStar %></td>
+          <td class="truncate td-is-3"><%= opinion.name %></td>
+          <td class="truncate td-is-3"><%= opinion.wedding_date %></td>
+          <td ><%= link_to svg('ico-eye.svg'), opinion, class: 'icon is-centered is-vcentered' %></td>
+          <td ><%= link_to svg('ico-edit.svg'), edit_album_path(opinion), class: 'icon is-centered is-vcentered' %></td>
+          <td ><%= link_to svg('ico-trash.svg'), opinion, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%== pagy_bulma_nav(@pagy) if @pagy.present? %>
+</div>

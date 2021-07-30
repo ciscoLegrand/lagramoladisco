@@ -4,6 +4,7 @@ class ServicesController < ApplicationController
 
   # GET /services or /services.json
   def index
+    add_breadcrumb 'Servicios'
     @services = Service.all
   end
 
