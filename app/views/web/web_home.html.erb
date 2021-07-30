@@ -67,47 +67,14 @@
 <% end %>
 <%= render(HomeBannerComponent.new(banner: @banner_dos, count: 'dos'))%>
 <!--about content 2-->
-<% if @about.present? && @about.visible?%>
-  <section class="section">
-    <% if @about.content2.present? && @about.content3.present? %>
-      <div class="columns is-centered">
-        <div class="column is-6">
-          <div class="">
-            <figure class="image is-5by4">
-              <%= image_tag(url_for(@about.image)) if @about.image.attached? %>
-            </figure>
-          </div>
-        </div>
-        <div class="column is-6 pl-6">
-          <% if @about.content2.present? %>
-            <div class="is-flex mb-6">
-              <div class="mr-4 has-text-primary">
-                <div class="image is-32x32">
-                  <%= svg('ico-dj.svg')%>
-                </div>
-              </div>
-              <div>
-                <h3 class="title is-size-4 is-size-4-mobile  is-spaced mb-3"><%= @about.title2 if @about.title2.present? %></h3>
-                <p class="subtitle is-size-4 is-size-5-mobile"><%=@about.content2 %></p>
-              </div>
-            </div>
-          <% end %>
-          <% if @about.content3.present? %>
-            <div class="is-flex">
-              <div class="mr-4 has-text-primary">
-                <div class="image is-32x32">
-                  <%= svg('ico-headset-outline.svg')%>
-                </div>
-              </div>
-              <div>
-                <h3 class="title is-size-4 is-size-4-mobile is-spaced mb-3"><%= @about.title3 if @about.title3.present? %></h3>
-                <p class="subtitle is-size-4 is-size-5-mobile"><%=@about.content3 %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
+<% if @about.present? && @about.content1.present? && @about.visible?%>
+  <section class="section">    
+    <div class="is-flex mb-6">
+      <div>
+        <h3 class="title is-1 is-size-2-mobiles has-text-centered is-spaced mb-3"><%= @about.name if @about.name.present? %></h3>
+        <div class="subtitle is-4 is-size-5-mobile"><%= @about.content1 %></div>
       </div>
-    <% end %>
+    </div>
   </section>
 <% end %>
 <!--about content 2-->
