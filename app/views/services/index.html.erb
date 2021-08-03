@@ -1,36 +1,23 @@
-<div class="box">
-  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
-    <%= link_to 'New service', new_service_path, class: "button is-primary is-hoverable mb-2" %>  
-    <thead>
-      <tr>
-        <th class="title is-5">Nombre</th>
-        <th class="title is-5">Descripcion</th>
-        <th class="title is-5">Precio</th>
-        <th class="title is-5">Portada</th>
-        <th ></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @services.each do |service| %>
-        <tr>
-          <td> <%= service.name %></td>
-          <td> <%= service.description %></td>
-          <td class="has-text-centered"> <%= service.price%> </td>
-          <td> 
-            <% if service.image.attached? %>
-              <%= image_tag url_for( service.image), data: {src: "#{rails_blob_url(service.image)}"},width: '50' %>
+
+<%= turbo_frame_tag :users do %>
+  <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Servicios</h1>
+  <%= render TableComponent.new(headers: @headers) do |table| %>
+    <%= @services.each do |service|%>
+      <%= table.row(cells: object_to_table_cells(service, @attrs)) do  |row| %>
+        <% row.actions do %>
+          <div class="buttons is-pulled-right">
+            <%= link_to inline_svg_tag('recortes/ico-eye.svg', class: 'icon is-medium has-text-primary'), service,  data:{turbo_frame: "_top"}  %>
+            <%= link_to inline_svg_tag('recortes/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_service_path(service) %>
+            <%= button_to service  ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
+              <%= inline_svg_tag('recortes/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
             <% end %>
-          </td>
-          <td class="has-text-right is-centered is-vcentered">
-            <%= link_to svg('ico-eye.svg'), service, class: 'icon' %> |
-            <%= link_to svg('ico-edit.svg'), edit_service_path(service), class: 'icon' %> |
-            <%= link_to svg('ico-trash.svg'), service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
-          </td>
-
-        </tr>
+          </div>
+        <% end %>
       <% end %>
-    </tbody>
-  </table>
-  <%== pagy_bulma_nav(@pagy) if @pagy.present? %>
-</div>
+    <% end %>
+  <% end %>
+  <div class="box">
+  <%== pagy_bulma_nav(@pagy) %>
+  </div>
+<% end %>

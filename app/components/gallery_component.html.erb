@@ -1,0 +1,17 @@
+<% if @album.present? %>
+  <div class="container">
+    <div class="lb-images">
+      <div class="columns is-multiline is-pull-left">
+        <% @galleries.each do |gallery| %>
+          <% if gallery.images.attached?%>
+              <div class="images" data-controller="lightbox" data-lightbox-options-value='{"controls": true, "loop":true}'>
+                <% gallery.images.each do |imagen| %>
+                  <%= image_tag url_for(imagen), data: {src: "#{rails_blob_url(imagen)}"}, class:"column is-3 col-light is-5by3" %>
+                <% end %>
+              </div>
+          <% end %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

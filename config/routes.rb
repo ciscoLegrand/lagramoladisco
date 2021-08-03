@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   match 'aviso-legal', to: 'web#web_aviso_legal', as: 'legal', via: :get
   match 'politica-de-privacidad', to: 'web#web_aviso_privacidad', as: 'privacidad', via: :get
   match 'usuarios', to: 'users#index', via: :get
+  match 'email-contacto', to: "contacts#index", via: :get
   get '/galeria/:album_id', to: 'web#web_album', as: 'galeria'
   get '/servicios/:service_id', to: 'web#web_service', as: 'servicio'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

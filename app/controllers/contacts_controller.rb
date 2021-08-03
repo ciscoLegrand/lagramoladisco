@@ -1,4 +1,11 @@
 class ContactsController < ApplicationController 
+  def index
+    add_breadcrumb 'Email Contacto'
+    @headers = ['NOMBRE','EMAIL','TELEFONO','CABINAS','MAS SERVICIOS','RESTAURANTE','FECHA', 'ASUNTO']
+    @attrs =  [:name,:email,:phone, :service_name,  :additional_services, :restaurant_name,:date_event,  :title]
+    @pagy, @contacts = pagy(Contact.all, items: 10)
+  end
+
   def new 
     @contact = Contact.new 
   end

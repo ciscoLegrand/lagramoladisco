@@ -62,7 +62,7 @@ class WebController < ApplicationController
       @album = Album.find(params[:album_id])
       @pagy, @galleries  = pagy(Album.find(params[:album_id]).galleries, items: 10)
     else
-      redirect_to picmaton_path
+      redirect_to galerias_path
     end
   end 
   

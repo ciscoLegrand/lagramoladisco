@@ -15,26 +15,32 @@
               <% end %>
               <div class="field is-horizontal">
                 <div class="field-body is-flex is-justify-content-space-between">
-                  <%= form.label 'Nombre', class:'label is-size-4 has-text-weight-light' %> 
-                  <div class="control has-icons-left">
-                    <%= form.text_field :name, class: 'input', placeholder: 'Nombre' %>
-                    <span class="icon is-left pl-2" style='width:24px;'>
-                      <%= svg('ico-users.svg')%>
-                    </span>
+                  <div class="field">
+                    <%= form.label 'Nombre', class:'label is-size-4 has-text-weight-light' %> 
+                    <div class="control has-icons-left">
+                      <%= form.text_field :name, class: 'input', placeholder: 'Nombre' %>
+                      <span class="icon is-left pl-2" style='width:24px;'>
+                        <%= svg('ico-users.svg')%>
+                      </span>
+                    </div>
                   </div>
-                  <%= form.label 'Email', class:'label is-size-4 has-text-weight-light' %>
-                  <div class="control has-icons-left">
-                    <%= form.text_field :email, class: 'input', placeholder: 'Email' %>
-                    <span class="icon is-left pl-2" style='width:24px;'>
-                      <%= svg('ico-at-symbol.svg')%>
-                    </span>
+                  <div class="field">
+                    <%= form.label 'Email', class:'label is-size-4 has-text-weight-light' %>
+                    <div class="control has-icons-left">
+                      <%= form.text_field :email, class: 'input', placeholder: 'Email' %>
+                      <span class="icon is-left pl-2" style='width:24px;'>
+                        <%= svg('ico-at-symbol.svg')%>
+                      </span>
+                    </div>
                   </div>
-                  <%= form.label 'Teléfono', class:'label is-size-4 has-text-weight-light' %>
-                  <div class="control has-icons-left">
-                    <%= form.text_field :phone, class: 'input', placeholder: 'Teléfono' %>
-                    <span class="icon is-left pl-2" style='width:24px;'>
-                      <%= svg('ico-phone.svg')%>
-                    </span>
+                  <div class="field">
+                    <%= form.label 'Teléfono', class:'label is-size-4 has-text-weight-light' %>
+                    <div class="control has-icons-left">
+                      <%= form.text_field :phone, class: 'input', placeholder: 'Teléfono' %>
+                      <span class="icon is-left pl-2" style='width:24px;'>
+                        <%= svg('ico-phone.svg')%>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -42,26 +48,38 @@
                 <!--TODO: configurar estos cmapos-->
                 <div class="field is-horizontal">
                   <div class="field-body is-flex is-justify-content-space-between">
-                    <div class="control">
-                      <div class="select">
-                        <%= form.collection_select(:service_name, ServiceItem.where(service_id: 1 ).all, :name, :name, prompt:'Cabinas') %>
+                    <div class="field">
+                      <%= form.label 'Cabinas', class:'label is-size-4 has-text-weight-light' %>
+                      <div class="control">
+                        <div class="select">
+                          <%= form.collection_select(:service_name, ServiceItem.where(service_id: 1 ).all, :name, :name, prompt:'Cabinas') %>
+                        </div>
                       </div>
                     </div>
-              
-                      <%= form.date_field :date_event, class: 'form-control' %>
-            
-                    <div class="control has-icons-left">
-                      <%= form.text_field :restaurant_name, class: 'input', placeholder: 'restaurante' %>
-                      <span class="icon is-left pl-2" style='width:24px;' >
-                        <%= svg('ico-comment-solid.svg')%>
-                      </span>
-                    </div>
-
-                    <div class="control">
-                      <div class="select">
-                     <div class="select">
-                        <%= form.collection_select(:additional_services, Service.all, :name, :name, prompt:'Otros Servicios') %>
+                    <div class="field">
+                      <%= form.label 'Fecha del evento', class:'label is-size-4 has-text-weight-light' %>
+                      <div class="control has-icons-left">
+                        <%= form.date_field :date_event, class: 'input',placeholder: 'Introduce fecha', data: { controller: "flatpickr" } %>
+                        <span class="icon is-left pl-2" style='width:24px;' >
+                          <%= svg('ico-calendar.svg')%>
+                        </span>
                       </div>
+                    </div>
+                    <div class="field">
+                      <%= form.label 'Restaurante', class:'label is-size-4 has-text-weight-light' %>
+                      <div class="control has-icons-left">
+                        <%= form.text_field :restaurant_name, class: 'input', placeholder: 'restaurante' %>
+                        <span class="icon is-left pl-2" style='width:24px;' >
+                          <%= svg('ico-location.svg')%>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <%= form.label 'Más Servicios', class:'label is-size-4 has-text-weight-light' %>
+                      <div class="control">
+                        <div class="select">
+                          <%= form.collection_select(:additional_services, Service.all, :name, :name, prompt:'Otros Servicios') %>
+                        </div>
                       </div>
                     </div>
                   </div>

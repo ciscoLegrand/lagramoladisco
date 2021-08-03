@@ -1,6 +1,5 @@
-
 <div class="box">
-  <%= form_tag usuarios_path, method: :get, class: 'is-flex is-justify-content-flex-end' do %>
+  <%= form_tag email_contacto_path, method: :get, class: 'is-flex is-justify-content-flex-end' do %>
     <div class="field has-addons " >
       <div class="control">
         <%= text_field_tag :name, params[:name], class: 'input is-medium' %>
@@ -15,10 +14,10 @@
 <div class="is-clearfix"></div>
 
 <%= turbo_frame_tag :users do %>
-  <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Usuarios</h1>
+  <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Emails</h1>
   <%= render TableComponent.new(headers: @headers) do |table| %>
-    <%= @users.each do |users|%>
-      <%= table.row(cells: object_to_table_cells(users, @attrs)) do  |row| %>
+    <%= @contacts.each do |contact|%>
+      <%= table.row(cells: object_to_table_cells(contact, @attrs)) do  |row| %>
         <% row.actions do %>
           <div class="buttons is-centered">
             <%#= link_to inline_svg_tag('recortes/ico-eye.svg', class: 'icon is-medium has-text-primary'), root_path,  data:{turbo_frame: "_top"}  %>

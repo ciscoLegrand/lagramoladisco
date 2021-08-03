@@ -5,7 +5,9 @@ class ServicesController < ApplicationController
   # GET /services or /services.json
   def index
     add_breadcrumb 'Servicios'
-    @services = Service.all
+    @headers = ['NOMBRE', 'DESCRIPCION','PRECIO']
+    @attrs =  [:name,:description, :price]
+    @pagy, @services = pagy(Service.all, items: 10)
   end
 
   # GET /services/1 or /services/1.json

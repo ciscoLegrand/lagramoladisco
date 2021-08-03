@@ -5,9 +5,10 @@ class AlbumsController < ApplicationController
   # GET /albums or /albums.json
   def index
     add_breadcrumb 'Galerías'
-    @albums = Album.all
-
-
+    @headers = ['TITULO', 'FECHA','CONTRASEÑA']
+    @attrs =  [:title, :date_event, :password]
+    @albums = Album.order('date_event ASC').all
+    @pagy, @albums = pagy(@albums, items: 10)
   end
   
   # GET /albums/1 or /albums/1.json
