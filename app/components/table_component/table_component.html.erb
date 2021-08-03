@@ -1,0 +1,14 @@
+<div class="box">  
+  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
+    <thead>
+      <% headers.each do |header| %>
+        <th><%= header %></th>
+      <% end %>
+    </thead>
+    <tbody>
+      <% rows.each do |row| %>
+        <%= row %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

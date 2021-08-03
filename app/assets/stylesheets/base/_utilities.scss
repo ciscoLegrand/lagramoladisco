@@ -1,0 +1,32 @@
+.btn-icon {
+  background:transparent;
+  border:none;
+}
+
+.has-no-bottom-line{
+  border-bottom: none !important;
+}
+
+.is-full-height{
+  min-height: 99vh;
+}
+
+ .is-hidden{
+   display:none;
+ }
+
+ //Para truncar en una sola linea:
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//Para truncar segun cantidad de lineas horizontales:
+.block-with-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+}
+

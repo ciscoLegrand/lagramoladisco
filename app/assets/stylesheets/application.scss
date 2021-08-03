@@ -6,14 +6,9 @@
  */
  @import "abstracts/bulma-variables";
  @import 'bulma';
+ @import "base/utilities";
 
-.is-full-height{
-  min-height: 99vh;
-}
 
- .is-hidden{
-   display:none;
- }
 
 // trix editor
 trix-editor {
@@ -26,20 +21,7 @@ trix-editor {
   right: 0;
 }
 
-//Para truncar en una sola linea:
-.truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
-//Para truncar segun cantidad de lineas horizontales:
-.block-with-text {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
-}
 .td-is-3{
   max-width: 150px;
 }

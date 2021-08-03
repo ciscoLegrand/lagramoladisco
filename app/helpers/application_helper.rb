@@ -2,6 +2,10 @@ module ApplicationHelper
   # for pagy pagination
   include Pagy::Frontend
   
+  def object_to_table_cells(record, attrs)
+    attrs.map{ |attr| record.send(attr) }
+  end
+
   def this_year
     current_year = Date.today.year
   end
