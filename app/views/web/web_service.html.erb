@@ -3,8 +3,8 @@
 <div class="container is-max-width  py-3 ">
   <div class="container">
     <div class="columns is-multiline">
-      <% @service.service_items.order('created_at DESC').each do |service| %>
-        <div class="column <%= @service.service_items.length > 1 ? 'is-6' : 'is-12'%>">
+      <% @service_objects.order('created_at DESC').each do |service| %>
+        <div class="column <%= @service_objects.length > 1 ? 'is-6' : 'is-12'%>">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -18,7 +18,7 @@
               <div class="media">
                 <div class="media-content">
                   <p class="title is-4"><%=  "#{service.name}" %></p>
-                  <p class="subtitle is-6"><%= service.body %> </p>
+                  <p class="subtitle is-6"><%= service.description %></p>
                 </div>
               </div>
             </div>

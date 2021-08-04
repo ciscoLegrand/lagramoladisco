@@ -277,7 +277,7 @@ input[type=file][data-direct-upload-url][disabled] {
   }
 
   ul ul {
-    background:$primary;
+    // background:$primary;
     padding-left:20px;
     transition: max-height 0.2s ease-out;
     max-height:0;

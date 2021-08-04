@@ -3,4 +3,5 @@ class Service < ApplicationRecord
   has_rich_text :description
   
   has_many :service_items
+  has_many :service_objects
 end

@@ -5,13 +5,15 @@ class ServicesController < ApplicationController
   # GET /services or /services.json
   def index
     add_breadcrumb 'Servicios'
-    @headers = ['NOMBRE', 'DESCRIPCION','PRECIO']
-    @attrs =  [:name,:description, :price]
+    @headers = ['NOMBRE', 'DESCRIPCION']
+    @attrs =  [:name,:description]
     @pagy, @services = pagy(Service.all, items: 10)
   end
 
   # GET /services/1 or /services/1.json
   def show
+    add_breadcrumb @service.name
+    @service_objects = ServiceObject.where(service_id: @service.id).all
   end
 
   # GET /services/new

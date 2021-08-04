@@ -1,34 +1,21 @@
-<div class="tile is-parent is-flex-direction-column">
-<p id="notice"><%= notice %></p>
-      <h4 class="panel-heading | subtitle is-4 | has-text-centered">
-       Servicios
-      </h4>
 
-
-<h4 class="has-background-warning | subtitle is-2 | has-text-centered"><%= @service.name %> </h4>
-
-
-
-<div id="todo_items_wrapper">
- <%= render @service.service_items %>
- <div id="form">
-  <%= render "service_items/service_item_form" %>
- </div>
-</div>
-
-
-<div class="is-max-width">
-  <div class="container">     
-    <%= link_to 'Edit', edit_service_path(@service), class: 'button is-small is-primary' %> |
-    <%= link_to 'Back', services_path, class: 'button is-small primary-lightest'%>
-    <%= link_to  @service do %>
+  <h4 class="has-background-warning | subtitle is-2 | has-text-centered"><%= @service.name %> </h4>
+  <%= button_to 'Volver', services_path,method: :get,  class: 'button is-dark  is-hoverable mr-2 mb-2'%>
+  <div class="is-fullwidth my-4">
+    <%= button_to 'Editar Servicio', edit_service_path(@service),method: :get, class: 'button is-link is-hoverable mr-2 mb-2 is-pulled-right' %>
+    <%= button_to "Crear #{@service.name}", new_service_object_path,method: :get, class: "button is-primary is-hoverable mr-2 mb-2 is-pulled-left" %>
+  </div>
+<div class="is-clearfix"></div>
+<hr class="has-background-dark">
+  <%= turbo_frame_tag :service_objects, lazy: true, src: service_objects_path %>
+    <div class="container my-4">
       <div class="card">
         <div class="card-image px-2 py-2">
           <figure class="image is-4by3">
-              <% if @service.image.attached? %>
-                <%= image_tag(url_for(@service.image)) %>
-              <% else %>
-              <% end %>
+            <% if @service.image.attached? %>
+            <%= image_tag(url_for(@service.image)) %>
+            <% else %>
+            <% end %>
           </figure>
         </div>
         <div class="card-content">
@@ -41,8 +28,4 @@
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
-
-</div>
+    </div>

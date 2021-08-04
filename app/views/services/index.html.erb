@@ -1,7 +1,7 @@
 
 
 <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Servicios</h1>
-<%= link_to 'Crear Album', new_service_path, class: "button is-primary is-hoverable mr-2 mb-2" %>
+<%= link_to 'Crear Servicio', new_service_path, class: "button is-primary is-hoverable mr-2 mb-2" %>
 <%= turbo_frame_tag :services do %>
   <%= render TableComponent.new(headers: @headers) do |table| %>
     <%= @services.each do |service|%>

@@ -23,6 +23,7 @@ class WebController < ApplicationController
 
   def web_service
     @service = Service.find(params[:service_id])
+    @service_objects = ServiceObject.where(service_id: @service).all
     add_breadcrumb @service.name, servicio_path
   end
 

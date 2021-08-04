@@ -1,0 +1,22 @@
+  <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Servicios</h1>
+<%= link_to 'Crear servicio', new_service_object_path, class: "button is-primary is-hoverable mr-2 mb-2" %>
+<%= turbo_frame_tag :service_objects do %>
+  <%= render TableComponent.new(headers: @headers) do |table| %>
+    <%= @service_objects.each do |service_object|%>
+      <%= table.row(cells: object_to_table_cells(service_object, @attrs)) do  |row| %>
+        <% row.actions do %>
+          <div class="buttons is-pulled-right">
+            <%= link_to inline_svg_tag('recortes/ico-eye.svg', class: 'icon is-medium has-text-primary'), service_object,  data:{turbo_frame: "_top"}  %>
+            <%= link_to inline_svg_tag('recortes/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_service_object_path(service_object) %>
+            <%= button_to service_object ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
+              <%= inline_svg_tag('recortes/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="box">
+  <%== pagy_bulma_nav(@pagy) %>
+  </div>
+<% end %>

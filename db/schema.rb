@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_184028) do
+ActiveRecord::Schema.define(version: 2021_08_03_190303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,16 @@ ActiveRecord::Schema.define(version: 2021_07_29_184028) do
     t.index ["service_id"], name: "index_service_items_on_service_id"
   end
 
+  create_table "service_objects", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.integer "position"
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_service_objects_on_service_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -236,5 +246,6 @@ ActiveRecord::Schema.define(version: 2021_07_29_184028) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "galleries", "albums"
   add_foreign_key "service_items", "services"
+  add_foreign_key "service_objects", "services"
   add_foreign_key "todo_items", "todo_lists"
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_objects
   resources :web_configs
   root 'web#web_home'
   
