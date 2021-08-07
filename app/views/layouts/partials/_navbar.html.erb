@@ -39,14 +39,14 @@
                 <div class="tags has-addons">
                   <span class="tag is-dark is-large"><%= current_user.name%></span>
                   <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-                    <span class="tag is-success is-large"><%= current_user.role%><%= button_to "", '/logout', method: :delete, class: 'delete' %></span>
+                    <span class="tag is-success is-large"><%= current_user.role%><%= button_to "",  logout_path, method: :delete, class: 'delete' %></span>
                   <% else %>
-                    <span class="tag is-success is-large"><%= current_user.last_name%><%= button_to "", '/logout', method: :delete, class: 'delete' %></span>
+                    <span class="tag is-success is-large"><%= current_user.last_name%><%= button_to "", logout_path, method: :delete, class: 'delete' %></span>
                   <% end %>
                 </div>
               </div>
             <%else%>
-              <%= link_to image_tag('recortes/ico-login.svg', class: 'icon is-medium'), '/login' %>
+              <%= link_to image_tag('recortes/ico-login.svg', class: 'icon is-medium'), login_path %>
             <% end %> 
           </div>
         </div>

@@ -48,9 +48,15 @@ Rails.application.routes.draw do
   get '/galeria/:album_id', to: 'web#web_album', as: 'galeria'
   get '/servicios/:service_id', to: 'web#web_service', as: 'servicio'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
+  devise_for :users, :controllers => { 
+    sessions: 'users/sessions',
+    registrations: 'users/registrations' 
+  }
 
   as :user do
+    get 'users/edit' => 'users/registrations#edit'
+    put 'users/edit' => 'users/registrations#create', :as => 'registrations'
     get 'login' => 'users/sessions#new'
     post 'login' => 'users/sessions#create'
     get 'signup' => 'users/registrations#new'
