@@ -10,15 +10,21 @@ class AboutsController < ApplicationController
 
   # GET /abouts/1 or /abouts/1.json
   def show
+    add_breadcrumb 'Sobre nosotros', abouts_path
+    add_breadcrumb @about.name
   end
 
   # GET /abouts/new
   def new
+    add_breadcrumb 'Sobre nosotros', abouts_path
+    add_breadcrumb 'Crear'
     @about = About.new
   end
 
   # GET /abouts/1/edit
   def edit
+    add_breadcrumb 'Sobre nosotros', abouts_path
+    add_breadcrumb "Editar #{@about.name}"
   end
 
   # POST /abouts or /abouts.json

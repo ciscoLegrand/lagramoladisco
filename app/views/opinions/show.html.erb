@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @opinion.title %>
-</p>
+<div class="box columns is-justify-content-centered">
+  <div class="column is-6-desktop is-10-touch">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @opinion.body %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @opinion.title %>
+    </p>
 
-<p>
-  <strong>Ratingstar:</strong>
-  <%= @opinion.ratingStar %>
-</p>
+    <p>
+      <strong>Body:</strong>
+      <%= @opinion.body %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @opinion.name %>
-</p>
+    <p>
+      <strong>Ratingstar:</strong>
+      <%= @opinion.ratingStar %>
+    </p>
 
-<p>
-  <strong>Wedding date:</strong>
-  <%= @opinion.wedding_date %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @opinion.name %>
+    </p>
 
-<%= link_to 'Edit', edit_opinion_path(@opinion) %> |
-<%= link_to 'Back', opinions_path %>
+    <p>
+      <strong>Wedding date:</strong>
+      <%= @opinion.wedding_date %>
+    </p>
+
+    <%= link_to 'Edit', edit_opinion_path(@opinion) %> |
+    <%= link_to 'Back', opinions_path %>
+  </div>
+</div>

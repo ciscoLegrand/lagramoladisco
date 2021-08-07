@@ -22,15 +22,21 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/1 or /opinions/1.json
   def show
+    add_breadcrumb 'Opiniones', opinions_path 
+    add_breadcrumb @opinion.name
   end
 
   # GET /opinions/new
   def new
+    add_breadcrumb 'Opiniones', opinions_path 
+    add_breadcrumb 'Nuevo'
     @opinion = Opinion.new
   end
 
   # GET /opinions/1/edit
   def edit
+    add_breadcrumb 'Opiniones', opinions_path  
+    add_breadcrumb "Editar #{@opinion.name}"
   end
 
   # POST /opinions or /opinions.json

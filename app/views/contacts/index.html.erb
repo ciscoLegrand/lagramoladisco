@@ -20,10 +20,10 @@
       <%= table.row(cells: object_to_table_cells(contact, @attrs)) do  |row| %>
         <% row.actions do %>
           <div class="buttons is-centered">
-            <%#= link_to inline_svg_tag('recortes/ico-eye.svg', class: 'icon is-medium has-text-primary'), root_path,  data:{turbo_frame: "_top"}  %>
+            <%#= link_to inline_svg_tag('icons/ico-eye.svg', class: 'icon is-medium has-text-primary'), root_path,  data:{turbo_frame: "_top"}  %>
             <%#= link_to inline_svg_tag('recortes/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_account_path(invited) %>
-            <%#= button_to users_index_path ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
-              <%#= inline_svg_tag('recortes/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+            <%#= button_to contacts_path ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
+              <%#= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
             <%# end %>
           </div>
         <% end %>

@@ -1,0 +1,61 @@
+//services page
+.service-card{
+  position: relative;
+  width: 100% !important;
+}
+
+.moveright{
+  animation-name: introright;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.moveleft{
+  animation-name: introleft;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@media (min-width:978px){
+    
+    @keyframes introright {
+      0%   { right:0px; top:0px;}
+      100% { right:15%; top:0px;}
+    
+    }
+    @keyframes introleft {
+      0%   { left:0px; top:0px;}
+      100% { left:15%; top:0px;}
+    }
+
+}
+
+.service-img-card-left{
+  width: 60%;
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.service-card-content-left {
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.service-img-card-right{
+  width: 60%;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.service-card-content-right {
+  float: left;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

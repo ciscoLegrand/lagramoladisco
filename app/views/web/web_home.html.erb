@@ -2,7 +2,7 @@
 <!--about content 1-->
 <% if @about.present? && @about.visible?%>
   <section class="section">
-    <% if @about.content2.present? && @about.content3.present? %>
+    <% if @about.content_left.present? && @about.content_right.present? %>
       <div class="columns is-centered">
         <div class="column is-6">
           <div class="">
@@ -12,29 +12,29 @@
           </div>
         </div>
         <div class="column is-6 pl-6">
-          <% if @about.content2.present? %>
+          <% if @about.content_left.present? %>
             <div class="is-flex mb-6">
               <div class="mr-4 has-text-primary">
                 <div class="image is-32x32">
-                  <%= svg('ico-dj.svg')%>
+                  <%= inline_svg_tag('icons/ico-dj.svg')%>
                 </div>
               </div>
               <div>
                 <h3 class="title is-size-4 is-size-4-mobile  is-spaced mb-3"><%= @about.title2 if @about.title2.present? %></h3>
-                <p class="subtitle is-size-4 is-size-5-mobile"><%=@about.content2 %></p>
+                <p class="subtitle is-size-4 is-size-5-mobile"><%=@about.content_left %></p>
               </div>
             </div>
           <% end %>
-          <% if @about.content3.present? %>
+          <% if @about.content_right.present? %>
             <div class="is-flex">
               <div class="mr-4 has-text-primary">
                 <div class="image is-32x32">
-                  <%= svg('ico-headset-outline.svg')%>
+                  <%= inline_svg_tag('icons/ico-headset-outline.svg')%>
                 </div>
               </div>
               <div>
                 <h3 class="title is-size-4 is-size-4-mobile is-spaced mb-3"><%= @about.title3 if @about.title3.present? %></h3>
-                <p class="subtitle is-size-4 is-size-5-mobile"><%=@about.content3 %></p>
+                <p class="subtitle is-size-4 is-size-5-mobile"><%=@about.content_right %></p>
               </div>
             </div>
           <% end %>
@@ -67,12 +67,12 @@
 <% end %>
 <%= render(HomeBannerComponent.new(banner: @banner_dos, count: 'dos'))%>
 <!--about content 2-->
-<% if @about.present? && @about.content1.present? && @about.visible?%>
+<% if @about.present? && @about.body.present? && @about.visible?%>
   <section class="section">    
     <div class="is-flex mb-6">
       <div>
         <h3 class="title is-1 is-size-2-mobiles has-text-centered is-spaced mb-3"><%= @about.name if @about.name.present? %></h3>
-        <div class="subtitle is-4 is-size-5-mobile"><%= @about.content1 %></div>
+        <div class="subtitle is-4 is-size-5-mobile"><%= @about.body %></div>
       </div>
     </div>
   </section>
@@ -110,7 +110,7 @@
               </div>
               <%= link_to 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' do%>
                 <div class="icon is-large is-pulled-left mt-4 ">
-                  <%= svg('ico-bodasnet.svg')%>
+                  <%=inline_svg_tag('ico-bodasnet.svg')%>
                 </div>
               <% end %>
               <p class="mt-4 mb-3 has-text-right ">
@@ -118,7 +118,7 @@
                   <% count = 0.0%>         
                   <% while count < opinion.ratingStar do  %>
                     <span class="icon is-small">
-                      <%=svg('ico-star-regular.svg')%> 
+                      <%=inline_svg_tag('ico-star-regular.svg')%> 
                     </span>
                     <% count += 1%>
                   <% end %>
@@ -163,7 +163,7 @@
               </div>
               <%= link_to 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' do%>
                 <div class="icon is-large is-pulled-left mt-4 ">
-                  <%= svg('ico-bodasnet.svg')%>
+                  <%=inline_svg_tag('ico-bodasnet.svg')%>
                 </div>
               <% end %>
               <p class="mt-4 mb-3 has-text-right ">
@@ -171,7 +171,7 @@
                   <% count = 0.0%>         
                   <% while count < opinion.ratingStar do  %>
                     <span class="icon is-small">
-                      <%=svg('ico-star-regular.svg')%> 
+                      <%=inline_svg_tag('ico-star-regular.svg')%> 
                     </span>
                     <% count += 1%>
                   <% end %>

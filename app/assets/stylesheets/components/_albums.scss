@@ -1,0 +1,39 @@
+//lightbox galleries
+.images {
+	display: flex;
+  flex-flow:row wrap;
+	float: left;
+	margin-top: 25px;
+ }
+
+ .col-light img {
+	margin: 10px;
+	cursor: pointer;
+ }
+ 
+// web_albums
+.cards {
+  position: relative;
+}
+
+.gallery-content{
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.cards:hover .gallery-content{
+  display: block;
+  background: rgba(255,255,255,0.3);
+}
+
+
+.media{
+  height: 100%;
+}
+.media-content{
+  width: 100%;
+}

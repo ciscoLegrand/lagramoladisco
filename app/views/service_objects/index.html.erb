@@ -6,10 +6,10 @@
       <%= table.row(cells: object_to_table_cells(service_object, @attrs)) do  |row| %>
         <% row.actions do %>
           <div class="buttons is-pulled-right">
-            <%= link_to inline_svg_tag('recortes/ico-eye.svg', class: 'icon is-medium has-text-primary'), service_object,  data:{turbo_frame: "_top"}  %>
-            <%= link_to inline_svg_tag('recortes/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_service_object_path(service_object) %>
+            <%= link_to inline_svg_tag('icons/ico-eye.svg', class: 'icon is-medium has-text-primary'), service_object,  data:{turbo_frame: "_top"}  %>
+            <%= link_to inline_svg_tag('icons/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_service_object_path(service_object) %>
             <%= button_to service_object ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
-              <%= inline_svg_tag('recortes/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+              <%= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
             <% end %>
           </div>
         <% end %>

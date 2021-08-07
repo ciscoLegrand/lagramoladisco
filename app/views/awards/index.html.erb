@@ -23,9 +23,9 @@
           </td>
           <td><%= @awards.body %></td>
           
-          <td><%= link_to svg('ico-eye.svg'), @awards, class: 'icon is-centered is-vcentered' %></td>
-          <td><%= link_to svg('ico-edit.svg'), edit_award_path(@awards), class: 'icon is-centered is-vcentered' %></td>
-          <td><%= link_to svg('ico-trash.svg'), @awards, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
+          <td><%= link_to inline_svg_tag('icons/ico-eye.svg'), @awards, class: 'icon is-centered is-vcentered' %></td>
+          <td><%= link_to inline_svg_tag('icons/ico-edit.svg'), edit_award_path(@awards), class: 'icon is-centered is-vcentered' %></td>
+          <td><%= link_to inline_svg_tag('icons/ico-trash.svg'), @awards, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
         </tr>
         <% end %>
     </tbody>

@@ -25,9 +25,9 @@
             <% end %>
           </td>
           <td class="has-text-right is-centered is-vcentered">
-              <%= link_to svg('ico-eye.svg'), home_banner, class: 'icon' %> |
-              <%= link_to svg('ico-edit.svg'), edit_home_banner_path(home_banner), class: 'icon' %> |
-              <%= link_to svg('ico-trash.svg'), home_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
+              <%= link_to inline_svg_tag('icons/ico-eye.svg'), home_banner, class: 'icon' %> |
+              <%= link_to inline_svg_tag('icons/ico-edit.svg'), edit_home_banner_path(home_banner), class: 'icon' %> |
+              <%= link_to inline_svg_tag('icons/ico-trash.svg'), home_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
           </td>
         </tr>
       <% end %>

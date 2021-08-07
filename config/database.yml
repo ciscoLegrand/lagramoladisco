@@ -85,6 +85,5 @@ test:
 #
 production:
   <<: *default
-  database: lagramola_production
-  username: cr34_capp
-  password: <%= ENV['GALLERYAPP_DATABASE_PASSWORD'] %>
+  database: capp_production
+

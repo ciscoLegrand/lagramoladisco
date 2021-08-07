@@ -1,7 +1,7 @@
 
   <aside class="sidebar" id="main-menu">
     <div class="has-background-white has-text-centered pt-2 pb-2">
-      <%= link_to inline_svg_tag("recortes/logo.svg", size: "50"), root_path %>              
+      <%= link_to inline_svg_tag("icons/logo.svg", size: "50"), root_path %>              
     </div>
 
 
@@ -10,7 +10,7 @@
         <ul >
           <li>
             <span class="panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line"  data-action="click->menu#set_active_menu" data-menu="home">
-              <span class="panel-icon "> <%= inline_svg_tag('recortes/ico-home-solid.svg', class: 'icon  has-text-info') %> </span>        
+              <span class="panel-icon "> <%= inline_svg_tag('icons/ico-home-solid.svg', class: 'icon  has-text-info') %> </span>        
               <span class="name">Home</span>
             </span>
             <ul data-menu-target="dropdown">
@@ -18,7 +18,7 @@
                 <%= link_to home_banners_path , class: 'item panel-block is-flex is-justify-content-space-between is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'banners', action: 'click->menu#set_active_menu_item'}  do %>
                   <span class="name">Home banners</span>
                   <span class="panel-icon ">
-                    <%= inline_svg_tag('recortes/ico-images.svg', class:'icon  has-text-info')%>
+                    <%= inline_svg_tag('icons/ico-images.svg', class:'icon  has-text-info')%>
                   </span>        
                 <% end %>
               </li>
@@ -26,7 +26,7 @@
                 <%= link_to abouts_path , class: 'item panel-block is-flex is-justify-content-space-between is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'abouts', action: 'click->menu#set_active_menu_item'}  do %>
                   <span class="name">Quienes somos</span>
                   <span class="panel-icon ">
-                    <%= inline_svg_tag('recortes/ico-edit.svg', class:'icon  has-text-info')%>
+                    <%= inline_svg_tag('icons/ico-edit.svg', class:'icon  has-text-info')%>
                   </span>        
                 <% end %>
               </li>
@@ -34,7 +34,7 @@
                 <%= link_to awards_path , class: 'item panel-block is-flex is-justify-content-space-between is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'awards', action: 'click->menu#set_active_menu_item'}  do %>
                   <span class="name">Premios</span>
                   <span class="panel-icon ">
-                    <%= inline_svg_tag('recortes/ico-award-solid.svg', class:'icon  has-text-info')%>
+                    <%= inline_svg_tag('icons/ico-award-solid.svg', class:'icon  has-text-info')%>
                   </span>        
                 <% end %>
               </li>
@@ -49,7 +49,7 @@
               <div class="menu-item-label panel-block is-justify-content-space-between">
                 <%= link_to quotes_path do %>
                 <span class="mr-5 has-text-white is-size-6">Quotes</span>
-                <span class="icon is-medium panel-icon has-text-info is-pulled-left"><%= svg('ico-comment-solid.svg', class: 'icon ') %></span>
+                <span class="icon is-medium panel-icon has-text-info is-pulled-left"><%= inline_svg_tag('icons/ico-comment-solid.svg', class: 'icon ') %></span>
                 <% end %>
               </div>
             </li>              
@@ -57,7 +57,7 @@
           <li>
             <%= link_to opinions_path , class: 'item  is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'opinions', action: 'click->menu#set_active_menu_item'}  do %>
               <span class="panel-icon ">
-                <%= inline_svg_tag('recortes/ico-comment-solid.svg', class: 'icon  has-text-info')%>
+                <%= inline_svg_tag('icons/ico-comment-solid.svg', class: 'icon  has-text-info')%>
               </span>        
               <span class="name">Opiniones</span>
             <% end %>
@@ -65,7 +65,7 @@
           <li>
             <%= link_to albums_path , class: 'item panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'galerias', action: 'click->menu#set_active_menu_item'}  do %>
               <span class="panel-icon ">
-                <%= inline_svg_tag('recortes/ico-images.svg', class: 'icon  has-text-info')%>
+                <%= inline_svg_tag('icons/ico-images.svg', class: 'icon  has-text-info')%>
               </span>        
               <span class="name">Galerías</span>
             <% end %>
@@ -73,7 +73,7 @@
           <li>
             <%= link_to services_path , class: 'item panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'services', action: 'click->menu#set_active_menu_item'}  do %>
               <span class="panel-icon ">
-                <%= inline_svg_tag('recortes/ico-edit.svg', class: 'icon  has-text-info')%>
+                <%= inline_svg_tag('icons/ico-edit.svg', class: 'icon  has-text-info')%>
               </span>        
               <span class="name">Servicios</span>
             <% end %>
@@ -81,7 +81,7 @@
           <li>
             <%= link_to email_contacto_path , class: 'item panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'contacts', action: 'click->menu#set_active_menu_item'}  do %>
               <span class="panel-icon ">
-                <%= inline_svg_tag('recortes/ico-at-symbol.svg', class: 'icon  has-text-info')%>
+                <%= inline_svg_tag('icons/ico-at-symbol.svg', class: 'icon  has-text-info')%>
               </span>        
               <span class="name">Email contacto</span>
             <% end %>
@@ -89,7 +89,7 @@
           <li>
             <%= link_to usuarios_path , class: 'item panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'users', action: 'click->menu#set_active_menu_item'}  do %>
               <span class="panel-icon ">
-                <%= inline_svg_tag('recortes/ico-users.svg', class: 'icon  has-text-info')%>
+                <%= inline_svg_tag('icons/ico-users.svg', class: 'icon  has-text-info')%>
               </span>        
               <span class="name">Usuarios</span>
             <% end %>
@@ -100,14 +100,14 @@
             <li>
               <div class="panel-block is-justify-content-space-between">
                 <%= link_to 'Invitar usuario', new_user_invitation_path,  class: 'has-text-white is-size-6' %>
-                <%= inline_svg_tag('recortes/ico-users.svg', class: 'icon  has-text-info') %>
+                <%= inline_svg_tag('icons/ico-users.svg', class: 'icon  has-text-info') %>
               </div>
             </li>
             <% end %>
             <li>
               <%= link_to web_configs_path , class: 'item panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'conf', action: 'click->menu#set_active_menu_item'}  do %>
                 <span class="panel-icon ">
-                  <%= inline_svg_tag('recortes/ico-cogs-solid.svg', class: 'icon  has-text-info')%>
+                  <%= inline_svg_tag('icons/ico-cogs-solid.svg', class: 'icon  has-text-info')%>
                 </span>        
                 <span class="name">Configuración general</span>
               <% end %>
@@ -117,7 +117,7 @@
             <% if user_signed_in? %>
               <%= link_to logout_path , class: 'item panel-block is-flex is-justify-content-flex-start is-align-items-start is-clickable is-hoverable has-no-bottom-line', data: {'menu-target': 'link', 'menu-item': 'logout', action: 'click->menu#set_active_menu_item'}  do %>
                 <span class="panel-icon ">
-                  <%= inline_svg_tag('recortes/ico-sign-out-solid.svg', class: 'icon  has-text-info')%>
+                  <%= inline_svg_tag('icons/ico-sign-out-solid.svg', class: 'icon  has-text-info')%>
                 </span>        
                 <span class="name">Salir</span>
               <% end %>
