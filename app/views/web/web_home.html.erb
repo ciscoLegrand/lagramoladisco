@@ -82,114 +82,114 @@
 <% if @opinions.present? %>
   <section class="hero is-medium "> 
     <h1 class="title is-1 has-text-centered">Nuestros clientes opinan</h1>
-    <div data-controller="carousel" class="swiper-container my-5 hero is-large is-hidden-touch", style="width:90vw;"
-      data-carousel-options-value='{
-      "loop": true,
-      "slidesPerView": 3,
-      "spaceBetween": 60,
-      "pagination": { "el": ".swiper-pagination", 
-                      "dynamicBullets": "true" },
-      "navigation": { "nextEl": ".swiper-button-next", 
-                      "prevEl": ".swiper-button-prev"}}'>
-      <div class="swiper-wrapper is-align-items-center">
-        <% @opinions.order('created_at DESC').each do |opinion|%>
-          <div class="swiper-slide">
-            <div class="card py-3 px-3">
-              <div class="card-content">
-                <p class="mt-2 mb-4">                
-                  <span class="is-size-6">
-                    <%= opinion.name%>
-                  </span>
-                </p>
-                <p class="  title is-4">
-                <%= link_to opinion.title, 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' %>
-                </p>
-                <p class="is-size-6">
-                  <%= opinion.body%>
-                </p>
-              </div>
-              <%= link_to 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' do%>
-                <div class="icon is-large is-pulled-left mt-4 ">
-                  <%=inline_svg_tag('ico-bodasnet.svg')%>
-                </div>
-              <% end %>
-              <p class="mt-4 mb-3 has-text-right ">
-                <span class="tag is-warning">
-                  <% count = 0.0%>         
-                  <% while count < opinion.ratingStar do  %>
-                    <span class="icon is-small">
-                      <%=inline_svg_tag('ico-star-regular.svg')%> 
+    <div class="opinions" data-controller="swiper">
+      <div class="swiper-container my-5 hero is-large is-hidden-touch " data-swiper-target="opinions">
+        <div class="swiper-wrapper is-align-items-center">
+          <% @opinions.order('created_at DESC').each do |opinion|%>
+            <div class="swiper-slide ">
+              <div class="card py-3 px-3">
+                <div class="card-content">
+                  <p class="mt-2 mb-4">                
+                    <span class="is-size-6">
+                      <%= opinion.name%>
                     </span>
-                    <% count += 1%>
-                  <% end %>
-                </span>
-                <span class="tag is-success"><%= opinion.ratingStar%></span>                  
-              </p>
-            </div>  
-          </div>
+                  </p>
+                  <p class="  title is-4">
+                  <%= link_to opinion.title, 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' %>
+                  </p>
+                  <p class="is-size-6">
+                    <%= opinion.body%>
+                  </p>
+                </div>
+                <%= link_to 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' do%>
+                  <div class="icon is-large is-pulled-left mt-4 ">
+                    <%=inline_svg_tag('icons/ico-bodasnet.svg')%>
+                  </div>
+                <% end %>
+                <p class="mt-4 mb-3 has-text-right ">
+                  <span class="opinions__tag ">
+                    <% count = 0.0%>         
+                    <% while count < opinion.ratingStar do  %>
+                      <span class="icon is-small">
+                        <%=inline_svg_tag('icons/ico-star-regular.svg')%> 
+                      </span>
+                      <% count += 1%>
+                    <% end %>
+                  </span>
+                  <span class="tag is-success"><%= opinion.ratingStar%></span>                  
+                </p>
+              </div>  
+            </div>
+          <% end %>
+        </div>
+        <% if @opinions.count > 1 %>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         <% end %>
       </div>
-      <% if @opinions.count > 1 %>
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      <% end %>
-    </div>
-    <!--swiper mobile-->
-        <div data-controller="carousel" class="swiper-container my-5 hero is-large is-hidden-desktop", style="width:90vw;"
-      data-carousel-options-value='{
-      "loop": true,
-      "pagination": { "el": ".swiper-pagination", 
-                      "dynamicBullets": "true" },
-      "navigation": { "nextEl": ".swiper-button-next", 
-                      "prevEl": ".swiper-button-prev"}}'>
-      <div class="swiper-wrapper is-align-items-center">
-        <% @opinions.order('created_at DESC').each do |opinion|%>
-          <div class="swiper-slide">
-            <div class="card py-3 px-3">
-              <div class="card-content">
-                <p class="mt-2 mb-4">                
-                  <span class="is-size-6">
-                    <%= opinion.name%>
-                  </span>
-                </p>
-                <p class="  title is-4">
-                <%= link_to opinion.title, 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' %>
-                </p>
-                <p class="is-size-6">
-                  <%= opinion.body%>
-                </p>
-              </div>
-              <%= link_to 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' do%>
-                <div class="icon is-large is-pulled-left mt-4 ">
-                  <%=inline_svg_tag('ico-bodasnet.svg')%>
-                </div>
-              <% end %>
-              <p class="mt-4 mb-3 has-text-right ">
-                <span class="tag is-warning">
-                  <% count = 0.0%>         
-                  <% while count < opinion.ratingStar do  %>
-                    <span class="icon is-small">
-                      <%=inline_svg_tag('ico-star-regular.svg')%> 
-                    </span>
-                    <% count += 1%>
-                  <% end %>
-                </span>
-                <span class="tag is-success"><%= opinion.ratingStar%></span>                  
-              </p>
-            </div>  
-          </div>
-        <% end %>
-      </div>
-      <% if @opinions.count > 1 %>
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      <% end %>
     </div>
   </section>
 <% end %>
 <!--opinions-->
 <%= render(HomeBannerComponent.new(banner: @banner_tres, count: 'tres'))%>
+
+
+
+
+
+
+
+
+
+<!--swiper mobile-->
+    <% if 1 == 0 %>
+      <!--swiper mobile-->
+      <div data-controller="swiper">    
+        <div class="swiper-container swiper  my-5 hero is-large is-hidden-desktop" data-swiper-target="main">
+          <div class="swiper-wrapper  is-align-items-center">
+            <% @opinions.order('created_at DESC').each do |opinion|%>
+              <div class="swiper-slide">
+                <div class="card py-3 px-3">
+                  <div class="card-content">
+                    <p class="mt-2 mb-4">                
+                      <span class="is-size-6">
+                        <%= opinion.name%>
+                      </span>
+                    </p>
+                    <p class="  title is-4">
+                    <%= link_to opinion.title, 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' %>
+                    </p>
+                    <p class="is-size-6">
+                      <%= opinion.body%>
+                    </p>
+                  </div>
+                  <%= link_to 'https://www.bodas.net/musica/la-gramola-discotecas-moviles--e15600/opiniones', target: 'blank' do%>
+                    <div class="icon is-large is-pulled-left mt-4 ">
+                      <%=inline_svg_tag('icons/ico-bodasnet.svg')%>
+                    </div>
+                  <% end %>
+                  <p class="mt-4 mb-3 has-text-right ">
+                    <span class="tag is-warning">
+                      <% count = 0.0%>         
+                      <% while count < opinion.ratingStar do  %>
+                        <span class="icon is-small">
+                          <%=inline_svg_tag('icons/ico-star-regular.svg')%> 
+                        </span>
+                        <% count += 1%>
+                      <% end %>
+                    </span>
+                    <span class="tag is-success"><%= opinion.ratingStar%></span>                  
+                  </p>
+                </div>  
+              </div>
+            <% end %>
+          </div>
+          <% if @opinions.count > 1 %>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
