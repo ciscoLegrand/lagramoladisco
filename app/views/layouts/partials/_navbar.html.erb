@@ -1,15 +1,15 @@
- 
+
     <nav class="navbar " role="navigation" aria-label="main navigation">
         <%= link_to inline_svg_tag('icons/logo.svg'), root_path, class: "navbar-item no-background mr-5"%>
       <div class="navbar-brand burger">
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-nav">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="main-nav" class="navbar-menu">
         <div class="navbar-start is-centered">          
           <%= link_to 'Inicio', root_path, class: "navbar-item is-size-5" %>          
           <%#= link_to 'Quienes Somos', sobre_nosotros_path , class: "navbar-item is-size-5" %>
