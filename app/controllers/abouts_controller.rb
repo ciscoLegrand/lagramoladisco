@@ -5,20 +5,28 @@ class AboutsController < ApplicationController
   # GET /abouts or /abouts.json
   def index
     add_breadcrumb 'Sobre nosotros'
+    @headers = ['TITULO','NOMBRE', 'CONTENIDO', 'CONTENIDO IZQD', 'CONTENIDO DCHA','VISIBLE'] 
+    @attrs = [:title,:name,:body,:content_left, :content_right, :visible] 
     @abouts = About.all
   end
 
   # GET /abouts/1 or /abouts/1.json
   def show
+    add_breadcrumb 'Sobre nosotros', abouts_path
+    add_breadcrumb @about.name
   end
 
   # GET /abouts/new
   def new
+    add_breadcrumb 'Sobre nosotros', abouts_path
+    add_breadcrumb 'Crear'
     @about = About.new
   end
 
   # GET /abouts/1/edit
   def edit
+    add_breadcrumb 'Sobre nosotros', abouts_path
+    add_breadcrumb "Editar #{@about.name}"
   end
 
   # POST /abouts or /abouts.json
@@ -66,6 +74,6 @@ class AboutsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def about_params
-      params.require(:about).permit(:title,:name,:content1, :title2, :content2, :title3, :content3,:visible, :image)
+      params.require(:about).permit(:title,:name, :body, :content_left, :content_right, :title2, :title3 ,:visible, :image)
     end
 end

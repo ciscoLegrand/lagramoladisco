@@ -9,14 +9,14 @@
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field has-text-left">
                 <%= f.label :email, class:'label is-pulled-left mr-3' %>
-                 <%= image_tag("recortes/ico-mail.svg", class: "icon is-small") %>
+                 <%= image_tag("icons/ico-mail.svg", class: "icon is-small") %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'input',placeholder: "e.g. camilo@gmail.com" %>
               </div>
               <div class="field has-text-left"data-controller="password-visibility"
-                                              data-password-visibility-show-value="<%= asset_path("recortes/ico-eye.svg") %>"
-                                              data-password-visibility-hide-value="<%= asset_path("recortes/ico-eye-off.svg") %>">
+                                              data-password-visibility-show-value="<%= asset_path("icons/ico-eye.svg") %>"
+                                              data-password-visibility-hide-value="<%= asset_path("icons/ico-eye-off.svg") %>">
                 <%= f.label :password, value: "Contraseña:" , class:'label is-pulled-left mr-3'%> 
-                <%= image_tag("recortes/ico-eye-off.svg", class: "icon is-small", data: {"password-visibility-target": "icon", action: "click->password-visibility#change" }) %>
+                <%= image_tag("icons/ico-eye-off.svg", class: "icon is-small", data: {"password-visibility-target": "icon", action: "click->password-visibility#change" }) %>
                 <%= f.password_field :password, autocomplete: "current-password", class: "input mt-3", data: {"password-visibility-target": "input"} %>
               </div>          
               <div class="field">

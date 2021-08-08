@@ -3,7 +3,7 @@ class ServiceObjectsController < ApplicationController
 
   # GET /service_objects or /service_objects.json
   def index
-    add_breadcrumb 'Servicio'
+    add_breadcrumb 'Servicios', services_path
     @headers = ['NOMBRE', 'DESCRIPCION','POSICION','SERVICIO','PRECIO']
 
     @attrs =  [:name,:description, :position, :service_name, :price]
@@ -12,15 +12,23 @@ class ServiceObjectsController < ApplicationController
 
   # GET /service_objects/1 or /service_objects/1.json
   def show
+    add_breadcrumb 'Servicios', services_path
+    add_breadcrumb @service_object.service_name, service_objects_path
+    add_breadcrumb @service_object.name
   end
 
   # GET /service_objects/new
   def new
+    add_breadcrumb 'Servicios', services_path
+    add_breadcrumb "Nuevo"
     @service_object = ServiceObject.new
   end
 
   # GET /service_objects/1/edit
   def edit
+    add_breadcrumb 'Servicios', services_path
+    add_breadcrumb @service_object.service_name, service_objects_path
+    add_breadcrumb "Editar #{@service_object.name}"
   end
 
   # POST /service_objects or /service_objects.json

@@ -12,7 +12,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+# gem 'webpacker'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
@@ -20,18 +20,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-# authentication
-gem 'devise'
-# authorization
-gem 'cancancan', '~> 3.2', '>= 3.2.1'
-# Use Active Storage variant
-gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
-
-# uses bulma framework
-gem "bulma-rails", "~> 0.9.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +32,7 @@ group :development do
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -54,15 +43,32 @@ group :test do
   gem 'webdrivers'
 end
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.4', require: false
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "view_component",require: "view_component/engine"
+# Use Active Storage variant
+gem 'image_processing', "~> 1.8" #'~> 1.2'
 #webscrapping
 gem 'kimurai', '~> 1.4'
-
+# digital ocean spaces
 gem 'aws-sdk-s3'
+
+gem 'devise'
+gem 'devise_invitable'
+gem 'bulma-rails'
+gem 'turbo-rails'  
 gem 'pagy'
+gem 'pg_search'
+# gem "action_policy"
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
+gem 'stimulus-rails'
 gem 'inline_svg'
-gem 'acts_as_list'
 gem "breadcrumbs_on_rails"
-gem 'turbo-rails'
+gem "view_component",require: "view_component/engine"
+gem 'acts_as_list'
+
+
+
+
+

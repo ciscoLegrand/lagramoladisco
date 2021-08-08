@@ -5,21 +5,29 @@ class AwardsController < ApplicationController
   # GET /awards or /awards.json
   def index
     add_breadcrumb 'Premios'
+    @headers = ['TITULO', 'CONTENIDO'] 
+    @attrs = [:title,:body ] 
     @awards = Award.first
   end
 
   # GET /awards/1 or /awards/1.json
   def show
+    add_breadcrumb 'Premios', awards_path
+    add_breadcrumb @award.id
     @awards = Award.first
   end
 
   # GET /awards/new
   def new
+    add_breadcrumb 'Premios', awards_path
+    add_breadcrumb 'Nuevo'
     @award = Award.new
   end
 
   # GET /awards/1/edit
   def edit
+    add_breadcrumb 'Premios', awards_path
+    add_breadcrumb "Editar #{ @award.id } "
   end
 
   # POST /awards or /awards.json

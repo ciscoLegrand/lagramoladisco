@@ -19,7 +19,7 @@
     <div class="field">
       <%= form.label :descripcion, class: 'label' %>
       <div class="control">
-        <%= form.rich_text_area :description, class: 'input is-medium' %>
+        <%= form.text_area :description, class: 'input is-medium' %>
       </div>
     </div>
     <div class="field">
@@ -30,6 +30,12 @@
     <div class="field">
       <%= form.label :posicion, class: 'label' %>
       <%= form.number_field :position, class: 'input is-medium' %>
+    </div>
+        <div class="field">
+      <%= form.label :image, class: 'label' %>
+      <div class="control">
+        <%= form.file_field :images,multiple: true, direct_upload: true, class: 'input is medium' %>
+      </div>
     </div>
     <div class="field">
       <div class="select">

@@ -12,17 +12,22 @@ class ServicesController < ApplicationController
 
   # GET /services/1 or /services/1.json
   def show
+    add_breadcrumb 'Servicios', services_path
     add_breadcrumb @service.name
     @service_objects = ServiceObject.where(service_id: @service.id).all
   end
 
   # GET /services/new
   def new
+    add_breadcrumb 'Servicios', services_path
+    add_breadcrumb "Nuevo"
     @service = Service.new
   end
 
   # GET /services/1/edit
   def edit
+    add_breadcrumb 'Servicios', services_path
+    add_breadcrumb "Editar #{@service.name}"
   end
 
   # POST /services or /services.json

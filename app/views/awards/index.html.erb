@@ -1,34 +1,21 @@
+<h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Premios</h1>
+<%= link_to 'Crear Pemios', new_award_path, class: "button is-primary is-hoverable mb-2" %>
 
-
-
-
-<div class="box">
-  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
-<%= link_to 'New Award', new_award_path, class: 'button is-primary' %>
-    <thead>
-      <tr>
-        <th class="title is-5">imagen</th>
-        <th class="title is-5">Descripción</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-        <% if @awards.present? %>
-        <tr>
-          <td>
-            <% if @awards.images.attached? %>
-              <%= image_tag url_for(@awards.images.first), data: {src: "#{rails_blob_url(@awards.images.first)}"}, width: '50' %>
-            <% end %>
-          </td>
-          <td><%= @awards.body %></td>
-          
-          <td><%= link_to svg('ico-eye.svg'), @awards, class: 'icon is-centered is-vcentered' %></td>
-          <td><%= link_to svg('ico-edit.svg'), edit_award_path(@awards), class: 'icon is-centered is-vcentered' %></td>
-          <td><%= link_to svg('ico-trash.svg'), @awards, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon mdi mdi-light is-centered is-vcentered' %></td>
-        </tr>
+<% if @award.present? %>
+  <%= turbo_frame_tag :users do %>
+    <%= render TableComponent.new(headers: @headers) do |table| %>
+        <%= table.row(cells: object_to_table_cells(@award, @attrs)) do  |row| %>
+          <% row.actions do %>
+            <div class="buttons is-pulled-right">
+              <%= link_to inline_svg_tag('icons/ico-eye.svg', class: 'icon is-medium has-text-primary'), @award,  data:{turbo_frame: "_top"}  if current_user.is_admin?  %>
+              <%= link_to inline_svg_tag('icons/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'),  edit_award_path(@award), data:{turbo_frame: "_top"} if current_user.is_admin? %>
+              <%= button_to @award ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }   do  %>
+                <%= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-    </tbody>
-  </table>
-</div>
+    <% end %>
+  <% end %>  
+<% end %>
 

@@ -13,15 +13,21 @@ class AlbumsController < ApplicationController
   
   # GET /albums/1 or /albums/1.json
   def show
+    add_breadcrumb 'Galerías', albums_path
+    add_breadcrumb @album.title
   end
 
   # GET /albums/new
   def new
+    add_breadcrumb 'Galerías', albums_path
+    add_breadcrumb 'Nuevo'
     @album = Album.new
   end
 
   # GET /albums/1/edit
   def edit
+    add_breadcrumb 'Galerías', albums_path
+    add_breadcrumb  "Editar #{@album.title}"
   end
 
   # POST /albums or /albums.json

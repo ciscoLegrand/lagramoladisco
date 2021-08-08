@@ -1,6 +1,6 @@
  
     <nav class="navbar " role="navigation" aria-label="main navigation">
-        <%= link_to svg('logo.svg'), root_path, class: "navbar-item no-background mr-5"%>
+        <%= link_to inline_svg_tag('icons/logo.svg'), root_path, class: "navbar-item no-background mr-5"%>
       <div class="navbar-brand burger">
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
@@ -39,14 +39,14 @@
                 <div class="tags has-addons">
                   <span class="tag is-dark is-large"><%= current_user.name%></span>
                   <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-                    <span class="tag is-success is-large"><%= current_user.role%><%= button_to "",  logout_path, method: :delete, class: 'delete' %></span>
+                    <span class="tag is-success is-large"><%= current_user.role%><%= link_to "",  logout_path, method: :delete, class: 'delete' %></span>
                   <% else %>
-                    <span class="tag is-success is-large"><%= current_user.last_name%><%= button_to "", logout_path, method: :delete, class: 'delete' %></span>
+                    <span class="tag is-success is-large"><%= current_user.last_name%><%= link_to "", logout_path, method: :delete, class: 'delete' %></span>
                   <% end %>
                 </div>
               </div>
             <%else%>
-              <%= link_to image_tag('recortes/ico-login.svg', class: 'icon is-medium'), login_path %>
+              <%= link_to image_tag('icons/ico-login.svg', class: 'icon is-medium'), login_path %>
             <% end %> 
           </div>
         </div>

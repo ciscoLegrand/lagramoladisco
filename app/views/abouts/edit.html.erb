@@ -2,7 +2,7 @@
   Sobre nosotros
 </h4>
 
-<%= link_to svg('icon-arrow-back.svg'), abouts_path, class: 'icon is-medium' %>
-<%= link_to svg('ico-eye.svg'), @about , class: 'icon is-medium' %> 
+<%= link_to inline_svg_tag('icons/icon-arrow-back.svg'), abouts_path, class: 'icon is-medium' %>
+<%= link_to inline_svg_tag('icons/ico-eye.svg'), @about , class: 'icon is-medium' %> 
 
 <%= render 'form', about: @about %>

@@ -7,10 +7,10 @@
       <%= table.row(cells: object_to_table_cells(album, @attrs)) do  |row| %>
         <% row.actions do %>
           <div class="buttons is-pulled-right">
-            <%= link_to inline_svg_tag('recortes/ico-eye.svg', class: 'icon is-medium has-text-primary'), album,  data:{turbo_frame: "_top"}  %>
-            <%= link_to inline_svg_tag('recortes/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_album_path(album) %>
+            <%= link_to inline_svg_tag('icons/ico-eye.svg', class: 'icon is-medium has-text-primary'), album,  data:{turbo_frame: "_top"}  %>
+            <%#= link_to inline_svg_tag('icons/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_album_path(album) %>
             <%= button_to album  ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
-              <%= inline_svg_tag('recortes/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+              <%= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
             <% end %>
           </div>
         <% end %>
@@ -54,9 +54,9 @@
           </td>
           <td></td>
           <td class="has-text-right is-centered is-vcentered">
-            <%= link_to svg('ico-eye.svg'), album, class: 'icon' %> |
-            <%= link_to svg('ico-edit.svg'), edit_album_path(album), class: 'icon' %> |
-            <%= link_to svg('ico-trash.svg'), album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
+            <%= link_to inline_svg_tag('icons/ico-eye.svg'), album, class: 'icon' %> |
+            <%= link_to inline_svg_tag('icons/ico-edit.svg'), edit_album_path(album), class: 'icon' %> |
+            <%= link_to inline_svg_tag('icons/ico-trash.svg'), album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
           </td>
         </tr>
         <% end %>

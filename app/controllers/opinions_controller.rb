@@ -5,6 +5,8 @@ class OpinionsController < ApplicationController
   # GET /opinions or /opinions.json
   def index
     add_breadcrumb 'Opiniones'
+    @headers = ['NOMBRE','TITULO', 'OPINON', 'PUNTUACION' ] 
+    @attrs = [:name,:title,:body_truncate,:ratingStar] 
     @pagy, @opinions = pagy(Opinion.all, items: 10)
   end
   # to do web_scrapping
@@ -22,15 +24,21 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/1 or /opinions/1.json
   def show
+    add_breadcrumb 'Opiniones', opinions_path 
+    add_breadcrumb @opinion.name
   end
 
   # GET /opinions/new
   def new
+    add_breadcrumb 'Opiniones', opinions_path 
+    add_breadcrumb 'Nuevo'
     @opinion = Opinion.new
   end
 
   # GET /opinions/1/edit
   def edit
+    add_breadcrumb 'Opiniones', opinions_path  
+    add_breadcrumb "Editar #{@opinion.name}"
   end
 
   # POST /opinions or /opinions.json

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_190303) do
+ActiveRecord::Schema.define(version: 2021_08_07_151150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 2021_08_03_190303) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title2"
     t.string "title3"
+    t.text "body"
+    t.text "content_left"
+    t.text "content_right"
   end
 
   create_table "action_text_rich_texts", force: :cascade do |t|
@@ -80,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_190303) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
+    t.text "body"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -113,6 +117,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_190303) do
     t.integer "order"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "quote"
   end
 
   create_table "opinions", force: :cascade do |t|
@@ -152,6 +157,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_190303) do
     t.bigint "service_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["service_id"], name: "index_service_objects_on_service_id"
   end
 
@@ -160,6 +166,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_190303) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
   end
 
   create_table "todo_items", force: :cascade do |t|

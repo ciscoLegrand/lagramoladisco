@@ -7,14 +7,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>
-    <%#= javascript_include_tag 'application' %>
- 
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= yield :head %>
+    <!--direct uploads-->
     <%= tag.meta name: "direct-upload-url", content: rails_direct_uploads_path %>
+    <%= javascript_include_tag "turbo", type: "module" %>
+    <%= stimulus_include_tags %>
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!--flatpickr-->
+     <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css', 'data-turbo-track': 'reload'%> 
+     <!--slimselect-->
+     <%= stylesheet_link_tag "https://unpkg.com/slim-select@1.27.0/dist/slimselect.min.css", "data-turbo-track": "reload" %>
+
   </head>
 
   <body>
@@ -23,7 +30,7 @@
       <%= render 'layouts/partials/admin_aside' if (user_signed_in? and current_user.is_admin?) %>
       <main class="column  <%= user_signed_in? ? 'is-10 is-offset-2 p-0' : 'is-12' %> is-8-touch is-vcentered" >
         <header class="header">
-          <h1 class="panel-heading | subtitle is-4 | has-text-centered"><%= render_breadcrumbs separator: ' > '%></h1>           
+          <h1 class="panel-heading | subtitle is-6 | has-text-left"><%= render_breadcrumbs separator: '/' if user_signed_in? %></h1>                 
           <%  flash.each do |type, data| %>
             <%= render NotificationComponent.new(type: type, data: data)  if current_user.present? %>
           <% end %> 
@@ -33,7 +40,6 @@
           <%= yield %>
         </section>
         <!-- fin cuerpo yield ruby-->
-        <%= render 'layouts/partials/footer' %>
       </main>
     </div>          
   </body>

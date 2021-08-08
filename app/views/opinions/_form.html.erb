@@ -1,42 +1,46 @@
-<%= form_with(model: opinion) do |form| %>
-  <% if opinion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(opinion.errors.count, "error") %> prohibited this opinion from being saved:</h2>
+<div class="columns is-justify-content-center">
+  <div class="column is-6-desktop  is-10-touch ">
+    <%= form_with(model: opinion, html: {class: 'box'}) do |form| %>
+      <% if opinion.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(opinion.errors.count, "error") %> prohibited this opinion from being saved:</h2>
 
-      <ul>
-        <% opinion.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% opinion.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= form.label :body %>
+        <%= form.text_field :body %>
+      </div>
+
+      <div class="field">
+        <%= form.label :ratingStar %>
+        <%= form.text_field :ratingStar %>
+      </div>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :wedding_date %>
+        <%= form.text_field :wedding_date %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ratingStar %>
-    <%= form.text_field :ratingStar %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :wedding_date %>
-    <%= form.text_field :wedding_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

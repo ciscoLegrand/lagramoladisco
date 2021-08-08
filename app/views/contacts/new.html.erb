@@ -19,27 +19,22 @@
                     <%= form.label 'Nombre', class:'label is-size-4 has-text-weight-light' %> 
                     <div class="control has-icons-left">
                       <%= form.text_field :name, class: 'input', placeholder: 'Nombre' %>
-                      <span class="icon is-left pl-2" style='width:24px;'>
-                        <%= svg('ico-users.svg')%>
-                      </span>
+                        <%= inline_svg_tag('icons/ico-users.svg', class:"icon is-left pl-2")%>
                     </div>
                   </div>
                   <div class="field">
                     <%= form.label 'Email', class:'label is-size-4 has-text-weight-light' %>
                     <div class="control has-icons-left">
                       <%= form.text_field :email, class: 'input', placeholder: 'Email' %>
-                      <span class="icon is-left pl-2" style='width:24px;'>
-                        <%= svg('ico-at-symbol.svg')%>
-                      </span>
+                        <%=inline_svg_tag('icons/ico-at-symbol.svg', class:"icon is-left pl-2")%>
                     </div>
                   </div>
                   <div class="field">
                     <%= form.label 'Teléfono', class:'label is-size-4 has-text-weight-light' %>
                     <div class="control has-icons-left">
                       <%= form.text_field :phone, class: 'input', placeholder: 'Teléfono' %>
-                      <span class="icon is-left pl-2" style='width:24px;'>
-                        <%= svg('ico-phone.svg')%>
-                      </span>
+                        <%=inline_svg_tag('icons/ico-phone.svg', class:"icon is-left pl-2")%>
+  
                     </div>
                   </div>
                 </div>
@@ -59,19 +54,15 @@
                     <div class="field">
                       <%= form.label 'Fecha del evento', class:'label is-size-4 has-text-weight-light' %>
                       <div class="control has-icons-left">
-                        <%= form.date_field :date_event, class: 'input',placeholder: 'Introduce fecha', data: { controller: "flatpickr" } %>
-                        <span class="icon is-left pl-2" style='width:24px;' >
-                          <%= svg('ico-calendar.svg')%>
-                        </span>
+                        <%= form.text_field :date_event, class: 'input',placeholder: Time.now.strftime('%Y-%m-%d'), data: { controller: "flatpickr" } %>
+                          <%=inline_svg_tag('icons/ico-calendar.svg', class:"icon is-left pl-2")%>
                       </div>
                     </div>
                     <div class="field">
                       <%= form.label 'Restaurante', class:'label is-size-4 has-text-weight-light' %>
                       <div class="control has-icons-left">
                         <%= form.text_field :restaurant_name, class: 'input', placeholder: 'restaurante' %>
-                        <span class="icon is-left pl-2" style='width:24px;' >
-                          <%= svg('ico-location.svg')%>
-                        </span>
+                          <%=inline_svg_tag('icons/ico-location.svg', class:"icon is-left pl-2")%>
                       </div>
                     </div>
                     <div class="field">
@@ -89,9 +80,7 @@
                 <%= form.label 'Asunto', class:'label is-size-4 has-text-weight-light' %>
                 <div class="control has-icons-left">
                   <%= form.text_field :title, class: 'input', placeholder: 'asunto' %>
-                  <span class="icon is-left pl-2" style='width:24px;' >
-                    <%= svg('ico-comment-solid.svg')%>
-                  </span>
+                    <%=inline_svg_tag('icons/ico-comment-solid.svg', class:"icon is-left pl-2")%>
                 </div>
                 <%= form.label 'Mensaje', class:'label is-size-4 has-text-weight-light' %>
                 <div class="control has-icons-left">
@@ -100,9 +89,7 @@
                 <%= form.label 'Donde nos conociste', class:'label is-size-4 has-text-weight-light' %>
                 <div class="control has-icons-left">                
                   <%= form.text_field :observations_info, class: 'input', placeholder: 'Donde nos conociste' %>
-                  <span class="icon is-left pl-2" style='width:24px;'>
-                    <%= svg('ico-location.svg')%>
-                  </span>
+                    <%=inline_svg_tag('icons/ico-location.svg', class:"icon is-left pl-2")%>
                 </div>
               </div>
               <div class="field">
@@ -122,7 +109,7 @@
               <div class="social-media is-flex  is-justify-content-center">
                 <%= link_to ("https://api.whatsapp.com/send?phone=#{WebConfig.first.contact_phone}" if WebConfig.first.contact_phone.present?), class: 'mr-3' do %>    
                   <figure class="icon is-medium has-text-primary">
-                    <%= svg('ico-whatsapp.svg')%>
+                    <%=inline_svg_tag('icons/ico-whatsapp.svg')%>
                   </figure>
                 <% end %>   
                 <%= render(SocialLinkComponent.new(href: WebConfig.first.url_facebook, name: 'facebook',ico: 'ico-facebook.svg'))%>

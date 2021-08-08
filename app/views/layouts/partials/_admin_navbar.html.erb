@@ -84,9 +84,9 @@
       <%= link_to  'Web', root_path, class: 'is-size-4 navbar-item has-divider is-desktop-icon-only is-hoverable has-text-white'%>
       <% if current_user %>
         <% if current_user.role == 'admin' || current_user.role == 'superadmin' %>
-          <span class=" is-small is-size-4 navbar-item has-divider is-desktop-icon-only has-text-white">Log out<%= link_to "", '/logout', method: :delete, class: 'delete' %></span>
+          <span class=" is-small is-size-4 navbar-item has-divider is-desktop-icon-only has-text-white">Log out<%= link_to "", logout_path, method: :delete, class: 'delete' %></span>
         <% else %>
-          <span class="is-small is-size-4 navbar-item has-divider is-desktop-icon-only has-text-white">Log out<%= link_to "", '/logout', method: :delete, class: 'delete' %></span>
+          <span class="is-small is-size-4 navbar-item has-divider is-desktop-icon-only has-text-white">Log out<%= link_to "",logout_path, method: :delete, class: 'delete' %></span>
         <% end %>
       <% end %>
     </div>

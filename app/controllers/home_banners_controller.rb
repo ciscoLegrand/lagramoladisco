@@ -5,20 +5,28 @@ class HomeBannersController < ApplicationController
   # GET /home_banners or /home_banners.json
   def index
     add_breadcrumb 'Banners Inicio'
-    @home_banners = HomeBanner.all
+    @headers = ['TITULO', 'CONTENIDO','POSICION','PARALLAX','VISIBLE'] 
+    @attrs = [:title,:body_truncate,:position, :parallax, :visible, ] 
+    @pagy,@home_banners = pagy(HomeBanner.all, items:10)
   end
 
   # GET /home_banners/1 or /home_banners/1.json
   def show
+    add_breadcrumb 'Banners Inicio', home_banners_path
+    add_breadcrumb @home_banner.title
   end
 
   # GET /home_banners/new
   def new
+    add_breadcrumb 'Banners Inicio', home_banners_path
+    add_breadcrumb 'Nuevo'
     @home_banner = HomeBanner.new
   end
 
   # GET /home_banners/1/edit
   def edit
+    add_breadcrumb 'Banners Inicio', home_banners_path
+    add_breadcrumb "Editar #{@home_banner.title}"
   end
 
   # POST /home_banners or /home_banners.json

@@ -1,34 +1,5 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
-import "@hotwired/turbo-rails"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import "controllers"
-
-require('jquery')
-require("trix")
-require("@rails/actiontext")
-
-// bulma's components
-require('./bulma_components/bulma_burguer_menu')
-// require('./bulma_components/bulma_modal')
-// require('./bulma_components/bulma_tabs')
-// require('./bulma_components/bulma_dropdown')
-
-import 'lightgallery.js/dist/css/lightgallery.min.css'
-import 'swiper/swiper-bundle.min.css'
-
-require('./uppy/drag_drop')
-
-Rails.start()
-ActiveStorage.start()
-
-
-
+// direct uploads
 addEventListener("direct-upload:initialize", event => {
   const { target, detail } = event
   const { id, file } = detail
@@ -66,3 +37,4 @@ addEventListener("direct-upload:end", event => {
   const element = document.getElementById(`direct-upload-${id}`)
   element.classList.add("direct-upload--complete")
 })
+// end direct uploads
