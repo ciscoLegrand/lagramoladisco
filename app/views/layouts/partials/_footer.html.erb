@@ -7,7 +7,7 @@
 </article>
 <footer class="is-large has-background-primary">
   <div class="columns p-2">
-    <div class="column is-4 has-text-left">
+    <div class="column is-4 has-text-left has-text-white">
       <%= this_year %> <strong><%= WebConfig.first.enterprise_name if WebConfig.first.enterprise_name.present? %></strong> Servicios para Eventos en Galicia.
     </div>
     <div class="column is-4 has-text-centered">
@@ -15,7 +15,7 @@
       <%= link_to 'Política Privacidad', privacidad_path, class:'is-hoverable has-text-white' %> |
       <%= link_to 'Cookies', cookies_path, class:'is-hoverable has-text-white'%>
     </div>
-    <div class="column is-4 has-text-right">
+    <div class="column is-4 has-text-right has-text-white">
       Desarrollado por <strong>creaDix</strong> 
     </div>
   </div>
