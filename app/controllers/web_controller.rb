@@ -58,10 +58,12 @@ class WebController < ApplicationController
     @total_images = 0 
     @album.galleries.each {|gal| @total_images += gal.images.length }
     @password = @album.password
-
+    
     if params.has_key?(:password) && params[:password].length > 0 && params[:password] == @password
       @album = Album.find(params[:album_id])
-      @pagy, @galleries  = pagy(Album.find(params[:album_id]).galleries, items: 10)
+      @gallery = Gallery.where(album_id: Album.find(params[:album_id]))
+      @images = Gallery.where(album_id: Album.find(params[:album_id])).first.images
+      @pagy, @gallery  = pagy(@images, items: 100)
     else
       redirect_to galerias_path
     end

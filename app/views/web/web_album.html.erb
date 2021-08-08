@@ -1,45 +1,63 @@
-<div class="container">
-  <h1 class="title is-1 has-text-centered py-6"> <%= @album.title %><%= @total_images%></h1>
+<div class="container">  
+  <h1 class="title is-1 has-text-centered py-6"> <%= @album.title %> <%= @total_images%></h1>
+  <%= Gallery.where(album_id: Album.find(params[:album_id])).first.images.length if current_user.present? && current_user.is_superadmin? %>
 </div>
+  <% if 1==0 %>
+    <div class="container is-fluid is-mobile my-6">
+      <nav class="level is-mobile column-mobile">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="subtitle is-5">
+              <div class="pr-3"><%= @album.total_images %> Imagenes</div>
+            </p>  
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Invitados</p>
+            <p class="title"><%= @album.wedding_guest %></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Visistas</p>
+            <p class="title">456K</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Likes</p>
+            <p class="title">789</p>
+          </div>
+        </div>
+      </nav>
+    </div>
+  <% end %>
 
-<% if 1==0 %>
-  <div class="container is-fluid is-mobile my-6">
-    <nav class="level is-mobile column-mobile">
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="subtitle is-5">
-            <div class="pr-3"><%= @album.total_images %> Imagenes</div>
-          </p>  
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Invitados</p>
-          <p class="title"><%= @album.wedding_guest %></p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Visistas</p>
-          <p class="title">456K</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Likes</p>
-          <p class="title">789</p>
-        </div>
-      </div>
-    </nav>
+  
+<div class="container my-3">  
+  <div class="is-hidden-tablet">
+    <%== pagy_bulma_nav(@pagy)%> 
   </div>
-<% end %>
-
+  <div class="columns is-multiline">
+    <% @gallery.each do |imagen| %>
+      <div class="column is-3-desktop is-6-tablet is-12-mobile">
+        <div class="images">
+          <%=link_to image_tag(url_for(imagen)), url_for(imagen), data: {src: "#{rails_blob_url(imagen)}"}, target:"_blank", class:"col-light is-5by3"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%== pagy_bulma_nav(@pagy)%> 
+</div>
+<% if 1==0 %>
+  
 <!--contenedor galeria principal-->
 <% if @album.present? %>
   <div class="container">
     <div class="lb-images">
       <div class="columns is-multiline is-pull-left">
-        <% @galleries.each do |gallery| %>
+        <% @gallery.each do |gallery| %>
           <% if gallery.images.attached?%>
               <div class="images" data-controller="lightbox" data-lightbox-options-value='{"controls": true, "loop":true}'>
                 <% gallery.images.each do |imagen| %>
@@ -53,4 +71,4 @@
   </div>
 <% end %>
 <!--contenedor galeria principal-->
-
+<% end %>
