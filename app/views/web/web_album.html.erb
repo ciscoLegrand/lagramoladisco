@@ -1,6 +1,6 @@
 <div class="container">  
-  <h1 class="title is-1 has-text-centered py-6"> <%= @album.title %> <%= @total_images%></h1>
-  <%= Gallery.where(album_id: Album.find(params[:album_id])).first.images.length if current_user.present? && current_user.is_superadmin? %>
+  <h1 class="title is-1 has-text-centered py-6"> <%= @album.title %></h1>
+  <h3><%= Gallery.where(album_id: Album.find(params[:album_id])).first.images.length if current_user.present? && current_user.is_superadmin? %></h3>
 </div>
   <% if 1==0 %>
     <div class="container is-fluid is-mobile my-6">
