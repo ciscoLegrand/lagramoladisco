@@ -5,6 +5,8 @@ class OpinionsController < ApplicationController
   # GET /opinions or /opinions.json
   def index
     add_breadcrumb 'Opiniones'
+    @headers = ['NOMBRE','TITULO', 'OPINON', 'PUNTUACION' ] 
+    @attrs = [:name,:title,:body_truncate,:ratingStar] 
     @pagy, @opinions = pagy(Opinion.all, items: 10)
   end
   # to do web_scrapping

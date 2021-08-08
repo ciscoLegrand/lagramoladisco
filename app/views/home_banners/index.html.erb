@@ -1,37 +1,28 @@
-<div class="box">
-  <table class="table is-striped is-hoverable is-sortable is-fullwidth">
-    <%= link_to 'Nuevo banner', new_home_banner_path, class: "button is-primary is-hoverable" %>
-    <thead>
-      <tr>
-        <th class="title is-5 has-text-centered">Titulo</th>
-        <th class="title is-5 has-text-centered">Contenido</th>
-        <th class="title is-5 has-text-centered">Visible</th>
-        <th class="title is-5 has-text-centered">Parallax</th>
-        <th class="title is-5 has-text-centered">Imagen</th>
-        <th class="title is-5 has-text-right">Acciones</th>
-      </tr>
-    </thead>
+<% if 1 == 0 %>
+  <% if home_banner.image.attached? %>
+    <%= image_tag url_for( home_banner.image), data: {src: "#{rails_blob_url(home_banner.image)}"}, width: '100' %>
+  <% end %>
+<% end %>
 
-    <tbody>
-      <% @home_banners.each do |home_banner| %>
-        <tr>
-          <td class=""> <%= home_banner.title %></td>
-          <td class=""><%= home_banner.body %></td>
-          <td class="has-text-centered" > <strong><%= home_banner.visible? ? 'Si' : 'No' %></strong></td>
-          <td class="has-text-centered"> <strong><%= home_banner.parallax? ? 'Activado' : 'Desactivado' %></strong></td>
-          <td class="" > 
-            <% if home_banner.image.attached? %>
-              <%= image_tag url_for( home_banner.image), data: {src: "#{rails_blob_url(home_banner.image)}"}, width: '100' %>
+  <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Banners</h1>
+<%= link_to 'Nuevo banner', new_home_banner_path, class: "button is-primary is-hoverable" %>
+<%= turbo_frame_tag :users do %>
+  <%= render TableComponent.new(headers: @headers) do |table| %>
+    <%= @home_banners.each do |home_banner|%>
+      <%= table.row(cells: object_to_table_cells(home_banner, @attrs)) do  |row| %>
+        <% row.actions do %>
+          <div class="buttons is-pulled-right">
+            <%= link_to inline_svg_tag('icons/ico-eye.svg', class: 'icon is-medium has-text-primary'), home_banner,  data:{turbo_frame: "_top"}  if current_user.is_admin?  %>
+            <%= link_to inline_svg_tag('icons/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_home_banner_path(home_banner), data:{turbo_frame: "_top"} if current_user.is_admin? %>
+            <%= button_to home_banner ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }   do  %>
+              <%= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
             <% end %>
-          </td>
-          <td class="has-text-right is-centered is-vcentered">
-              <%= link_to inline_svg_tag('icons/ico-eye.svg'), home_banner, class: 'icon' %> |
-              <%= link_to inline_svg_tag('icons/ico-edit.svg'), edit_home_banner_path(home_banner), class: 'icon' %> |
-              <%= link_to inline_svg_tag('icons/ico-trash.svg'), home_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
-          </td>
-        </tr>
+          </div>
+        <% end %>
       <% end %>
-    </tbody>
-  </table>
-  <%== pagy_bulma_nav(@pagy) if @pagy.present? %>
-</div>
+    <% end %>
+  <% end %>
+  <div class="box">
+  <%== pagy_bulma_nav(@pagy) %>
+  </div>
+<% end %>

@@ -5,6 +5,8 @@ class AwardsController < ApplicationController
   # GET /awards or /awards.json
   def index
     add_breadcrumb 'Premios'
+    @headers = ['TITULO', 'CONTENIDO'] 
+    @attrs = [:title,:body ] 
     @awards = Award.first
   end
 
