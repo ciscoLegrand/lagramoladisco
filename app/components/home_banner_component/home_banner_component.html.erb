@@ -1,17 +1,9 @@
-<% if @banner.present? && @banner.parallax? %>  
-  <style>
-    <%= "#parallax-#{@count}" %>{
-      background: url('<%= render(ImageComponent.new( image: @banner.image )) %>');
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;    
-    } 
-  </style>
-<% else %>
+
   <style>
     <%= "#main-section-#{@count}"  %>{
-      background: url('<%= render(ImageComponent.new( image: @banner.image )) %>') no-repeat center center fixed;
+      width: 100%;
+      background: url('<%= render(ImageComponent.new( image: @banner.image )) %>') no-repeat center center;
+      background-attachment: fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -19,14 +11,27 @@
       height: 100%;
       overflow: hidden;
     }
+    @media (max-width: 768px) {
+      <%= "#main-section-#{@count}"%> {
+      width: 100%;
+      background: url('<%= render(ImageComponent.new( image: @banner.image )) %>') no-repeat center center;
+      background-attachment: unset;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      height: 100%;
+      overflow: hidden;
+      }
+    }
   </style>
-<% end %>
 
-<section id='<%= @banner.parallax? ? "parallax-#{@count}" : "main-section-#{@count}" %>' class="hero is-large ">
-  <div class="hero-body">
+
+<section id='<%="main-section-#{@count}" %>' class="hero is-large banners">
+  <div class="hero-body banners__body">
     <div class="container">
       <div class="columns">
-        <div class="column is-6 is-offset-6">
+        <div class="column is-6-desktop is-8-touch is-offset-6-desktop is-offset-4-touch ">
           <%= render(BodyComponent.new(title: @banner.title, body: @banner.body))%>
         </div>
       </div>

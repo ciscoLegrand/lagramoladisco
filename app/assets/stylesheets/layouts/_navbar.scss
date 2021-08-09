@@ -1,0 +1,17 @@
+
+
+
+@include until($desktop) {
+  .navbar-item {
+    float: left !important;
+    width: 75% !important;
+  }
+  
+  .navbar-brand.burger{
+    position:absolute;
+    width: 15%;
+    top:15%;
+    right: 0;
+  }
+  
+}

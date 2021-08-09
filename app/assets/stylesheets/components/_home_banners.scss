@@ -1,0 +1,9 @@
+.banners{
+  &__body:hover{
+    background: rgba(7, 7, 7, 0.5);
+    -moz-transition: all 1s ease-in;
+    -webkit-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+  }
+}

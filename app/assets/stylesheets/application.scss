@@ -3,6 +3,7 @@
 
 @import 'base/utilities';
 
+@import 'layouts/navbar';
 @import "layouts/sidebar";
 @import "layouts/footer";
 
@@ -12,12 +13,7 @@
 @import "components/services";
 @import "components/direct_uploads";
 @import "components/opinions_sw";
-
-.burger{
-  position:absolute;
-  top:15%;
-  right: 0;
-}
+@import "components/home_banners";
 
 a:hover {
   background: transparent !important;
