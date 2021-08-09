@@ -2,11 +2,9 @@
 
 
 @include until($desktop) {
-  .navbar-item {
-    float: left !important;
-    width: 75% !important;
+  .navbar {
+    height:4.25rem;
   }
-  
   .navbar-brand.burger{
     position:absolute;
     width: 15%;
