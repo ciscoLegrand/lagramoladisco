@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  constraints(host: 'picmaton.com') do
+    get '(*)', to: redirect(host: 'lagramoladisco.com/galerias')
+  end
+
   resources :service_objects
   resources :web_configs
   root 'web#web_home'
@@ -69,4 +73,8 @@ Rails.application.routes.draw do
   #   #devise_scope :users do
   #   get '/users/sign_out'   => 'devise/sessions#destroy'
   # end
+
+
+
+
 end
