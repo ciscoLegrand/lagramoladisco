@@ -1,12 +1,7 @@
 import { Controller } from "stimulus"
-
-export default class extends Controller {
-
-    close(){
-        this.element.remove()
-    }
-    
-    hidden(){
-        this.element.remove()
-    }
+import Notification from 'https://cdn.skypack.dev/stimulus-notification'
+export default class extends Notification {
+    // close(){
+    //     this.element.remove()
+    // }
 }

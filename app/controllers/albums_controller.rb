@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
     add_breadcrumb 'Galerías'
     @headers = ['TITULO', 'FECHA','CONTRASEÑA']
     @attrs =  [:title, :date_event, :password]
-    @albums = Album.order('date_event ASC').all
+    @albums = Album.order('date_event DESC').all
     @pagy, @albums = pagy(@albums, items: 10)
   end
   
@@ -15,6 +15,15 @@ class AlbumsController < ApplicationController
   def show
     add_breadcrumb 'Galerías', albums_path
     add_breadcrumb @album.title
+
+    add_breadcrumb @album.title, galeria_path(@album)
+    @total_images = 0 
+    @album.galleries.each {|gal| @total_images += gal.images.length }
+    
+    @gallery = Gallery.where(album_id: @album)
+    @images = Gallery.where(album_id: @album).first.images
+    @pagy, @gallery  = pagy(@images, items: 50)
+
   end
 
   # GET /albums/new

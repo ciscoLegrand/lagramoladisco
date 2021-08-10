@@ -1,21 +1,19 @@
 <h3 class="subtitle is-4 has-text-centered">Añadir imagenes</h3>
 
-<div class=container>
-  <div class=columns is-vcentered>
-    <div class=column>
-      <%= form_for([@album, @album.galleries.build]) do |form| %>
-
-        <div class="field">
-          <%= form.label :imagen, class: 'label' %>
-          <div class="control">
-            <%= form.file_field :images, multiple: true, direct_upload: true, class: 'input is medium' %>
-          </div>
-        </div>
-                
-        <div class="actions control">
-          <%= form.submit 'añadir fotos', class: 'button is-primary'%>
-        </div>
-      <% end %>
-    </div>
+<%= form_for([@album, @album.galleries.build], html: {class:'box is-flex is-flex-direction-column '}) do |form| %>
+  <div class="file is-primary is-boxed is-large is-justify-content-center">
+     <%#= form.label :imagenes, class: 'file-label' %>
+    <label class="file-label">
+      <%= form.file_field :images, multiple: true, direct_upload: true, class: 'file-input' %>
+      <span class="file-cta">
+        <%= inline_svg_tag('icons/ico-cloud-upload.svg', class: 'file-icon is-large')%>
+        <span class="file-label">
+          Selecciona fotos...
+        </span>
+      </span>
+    </label>
   </div>
-</div>
+  <div class="actions control mt-4 is-flex is-justify-content-center">
+    <%= form.submit 'Subir fotos', class: 'button is-primary is-medium'%>
+  </div>
+<% end %>
