@@ -1,4 +1,4 @@
-
+//= require activestorage
 // direct uploads
 addEventListener("direct-upload:initialize", event => {
   const { target, detail } = event
