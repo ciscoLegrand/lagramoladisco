@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="level-item has-text-centered">
-      <h3 class='subtitle'><%= @images %> fotos</h3>
+      <h3 class='subtitle'><%= Gallery.where(album_id: @album).first.present? ? Gallery.where(album_id: @album).first.images : 0 %> fotos</h3>
     </div>
     <% if 1 == 0 %>    
       <div class="level-item has-text-centered">
@@ -44,10 +44,7 @@
 
 <div class="container my-3">  
   <%= render 'galleries/form' %>  
-  
-  <div class="is-hidden-tablet">
-    <%== pagy_bulma_nav(@pagy)%> 
-  </div>
+
   <div class="columns is-multiline">
     <% @gallery.each do |imagen| %>
       <div class="column is-3-desktop is-6-tablet is-12-mobile">
@@ -57,7 +54,7 @@
       </div>
     <% end %>
   </div>
-  <%== pagy_bulma_nav(@pagy)%> 
+
 </div>
 
 
