@@ -15,8 +15,7 @@ class AlbumsController < ApplicationController
   def show
     add_breadcrumb 'Galerías', albums_path
     add_breadcrumb @album.title
-
-    add_breadcrumb @album.title, galeria_path(@album)
+    
     @total_images = 0 
     @album.galleries.each {|gal| @total_images += gal.images.length }
     

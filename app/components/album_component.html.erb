@@ -12,7 +12,7 @@
         <div class="media is-vcentered">
           <div class="media-content  ">
             <p class="title is-size-4 is-size-5-touch has-text-white | mt-3 | album"><%= "#{@albums.title}" %></p>
-            <p class="subtitle is-size-4 is-size-6-touch has-text-white | album"><time datetime="<%= @albums.date_event %>"><%= @albums.date_event.strftime("%d-%m-%Y") %></time></p>
+            <p class="subtitle is-size-4 is-size-6-touch has-text-white | album"><time datetime="<%= @albums.date_event.strftime("%d-%m-%Y") if @albums.date_event.present? %>"><%= @albums.date_event.strftime("%d-%m-%Y") if @albums.date_event.present?%></time></p>
             <%= form_tag galeria_path(@albums), method: :get do %>
               <div class="field has-addons is-justify-content-center">
                 <div class="control">
