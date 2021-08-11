@@ -21,7 +21,7 @@ class AlbumsController < ApplicationController
     @album.galleries.each {|gal| @total_images += gal.images.length }
     
     @gallery = Gallery.where(album_id: @album)
-    @images = Gallery.where(album_id: @album).first.images
+    @images =Gallery.where(album_id: @album).present? ? Gallery.where(album_id: @album).first.images  : 0
     @pagy, @gallery  = pagy(@images, items: 50)
 
   end
