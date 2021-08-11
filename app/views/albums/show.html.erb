@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="level-item has-text-centered">
-      <h3 class='subtitle'><%= Gallery.where(album_id: @album).first.present? ? Gallery.where(album_id: @album).first.images : 0 %> fotos</h3>
+      <h3 class='subtitle'><%= Gallery.where(album_id: @album).first.present? ? Gallery.where(album_id: @album).first.images.length : 0 %> fotos</h3>
     </div>
     <% if 1 == 0 %>    
       <div class="level-item has-text-centered">
