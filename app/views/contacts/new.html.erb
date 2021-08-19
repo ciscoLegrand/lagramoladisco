@@ -2,7 +2,8 @@
       <div class="hero-body">
         <div class="container">
           <div class="container my-5 mt-5 mx-5 px-5">
-            <%= form_with(model: @contact, local: true, html: {class: 'box has-background-white-ter'}) do |form| %>
+            <!-- ! form desktop -->
+            <%= form_with(model: @contact, local: true, html: {class: 'box has-background-white-ter is-hidden-touch'}) do |form| %>
               <% if @contact.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this opinion from being saved:</h2>
@@ -45,8 +46,8 @@
                   <div class="field-body is-flex is-justify-content-space-between">
                     <div class="field">
                       <%= form.label 'Cabinas', class:'label is-size-4 has-text-weight-light' %>
-                      <div class="control">
-                        <div class="select">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
                           <%= form.collection_select(:service_name, ServiceItem.where(service_id: 1 ).all, :name, :name, prompt:'Cabinas') %>
                         </div>
                       </div>
@@ -67,8 +68,8 @@
                     </div>
                     <div class="field">
                       <%= form.label 'Más Servicios', class:'label is-size-4 has-text-weight-light' %>
-                      <div class="control">
-                        <div class="select">
+                      <div class="control is-expanded">
+                        <div class="select is-fullwidth">
                           <%= form.collection_select(:additional_services, Service.all, :name, :name, prompt:'Otros Servicios') %>
                         </div>
                       </div>
@@ -98,6 +99,8 @@
                 </div>
               </div>
             <% end %>
+            <!-- ! form mobile -->
+
           </div>
           <h4 class="subtitle is-size-4 is-size-4-mobile has-text-centered">Para cualquier consulta nos puedes encontrar en: <%= WebConfig.first.contact_phone if WebConfig.first.contact_phone.present? %> y también en <%= WebConfig.first.global_email if WebConfig.first.global_email.present? %></h4>
           <div class="container my-5 mt-5 mx-5 px-5 columns box is-justify-content-center has-background-white-ter">
@@ -123,3 +126,90 @@
         </div>
       </div>
     </section>
+    <div class="column is-12 is-hidden-deskto"> 
+      <%= form_with(model: @contact, local: true, html: {class: 'box has-background-white-ter is-hidden-desktop'}) do |form| %>
+        <% if @contact.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this opinion from being saved:</h2>
+            <ul>
+              <% @contact.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= form.label 'Nombre', class:'label is-size-4 has-text-weight-light' %> 
+          <div class="control has-icons-left">
+            <%= form.text_field :name, class: 'input', placeholder: 'Nombre' %>
+              <%= inline_svg_tag('icons/ico-users.svg', class:"icon is-left pl-2")%>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label 'Email', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">
+            <%= form.text_field :email, class: 'input', placeholder: 'Email' %>
+              <%=inline_svg_tag('icons/ico-at-symbol.svg', class:"icon is-left pl-2")%>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label 'Teléfono', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">
+            <%= form.text_field :phone, class: 'input', placeholder: 'Teléfono' %>
+            <%=inline_svg_tag('icons/ico-phone.svg', class:"icon is-left pl-2")%>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label 'Cabinas', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <%= form.collection_select(:service_name, ServiceItem.where(service_id: 1 ).all, :name, :name, prompt:'Cabinas') %>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label 'Fecha del evento', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">
+            <%= form.text_field :date_event, class: 'input',placeholder: Time.now.strftime('%Y-%m-%d'), data: { controller: "flatpickr" } %>
+              <%=inline_svg_tag('icons/ico-calendar.svg', class:"icon is-left pl-2")%>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label 'Restaurante', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">
+            <%= form.text_field :restaurant_name, class: 'input', placeholder: 'restaurante' %>
+              <%=inline_svg_tag('icons/ico-location.svg', class:"icon is-left pl-2")%>
+          </div>
+        </div>
+        <div class="field">
+          <%= form.label 'Más Servicios', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <%= form.collection_select(:additional_services, Service.all, :name, :name, prompt:'Otros Servicios') %>
+            </div>
+          </div>
+        </div>
+        <div class="field"> 
+          <%= form.label 'Asunto', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">
+            <%= form.text_field :title, class: 'input', placeholder: 'asunto' %>
+              <%=inline_svg_tag('icons/ico-comment-solid.svg', class:"icon is-left pl-2")%>
+          </div>
+          <%= form.label 'Mensaje', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">
+            <%= form.text_area :body, class: 'textarea', placeholder: 'mensaje' %>
+          </div>
+          <%= form.label 'Donde nos conociste', class:'label is-size-4 has-text-weight-light' %>
+          <div class="control has-icons-left">                
+            <%= form.text_field :observations_info, class: 'input', placeholder: 'Donde nos conociste' %>
+              <%=inline_svg_tag('icons/ico-location.svg', class:"icon is-left pl-2")%>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= form.submit :enviar, class: 'button is-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
