@@ -20,20 +20,24 @@
      <%= stylesheet_link_tag 'https://npmcdn.com/flatpickr/dist/themes/dark.css', 'data-turbo-track': 'reload'%> 
      <!--slimselect-->
      <%= stylesheet_link_tag "https://unpkg.com/slim-select@1.27.0/dist/slimselect.min.css", "data-turbo-track": "reload" %>
+     <!--sweetalert2-->
+     <%= stylesheet_link_tag "https://unpkg.com/sweetalert2@10.15.7/dist/sweetalert2.min.css", "data-turbo-track": "reload" %>
 
   </head>
 
   <body>
-      <%#= render 'layouts/partials/admin_navbar' %> 
+    <%= render NotificationComponent.with_collection(flash.to_a) %>
     <div class="columns is-fullheight has-background-white-ter m-0 is-full-height">
       <%= render 'layouts/partials/admin_aside' if (user_signed_in? and current_user.is_admin?) %>
-      <main class="column  <%= user_signed_in? ? 'is-10 is-offset-2 p-0' : 'is-12' %> is-8-touch is-vcentered" >
-        <header class="header">
-          <h1 class="panel-heading | subtitle is-6 | has-text-left"><%= render_breadcrumbs separator: '/' if user_signed_in? %></h1>                 
-          <%  flash.each do |type, data| %>
-            <%= render NotificationComponent.new(type: type, data: data)  if current_user.present? %>
-          <% end %> 
-        </header>
+      <main class= "column <%= user_signed_in? ? 'main is-10 is-offset-2 p-0' : 'is-12 has-background-primary' %> is-vcentered" >
+        <% if user_signed_in? %>
+          <header class="header panel-heading">
+            <div class="is-flex is-align-items-center">
+              <button class="button mr-3 header__menu" data-controller="fire-sidebar" data-action="fire-sidebar#fire"><%= inline_svg_tag("icons/ico-menu.svg", class:"icon has-text-link") %></button>
+              <span class="panel-heading subtitle is-size-6 | has-text-left"><%= render_breadcrumbs separator: '/'  %></span>           
+            </div>
+          </header>
+        <% end %>
         <!-- cuerpo yield ruby-->
         <section class="section">
           <%= yield %>

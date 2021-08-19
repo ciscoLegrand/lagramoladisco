@@ -3,17 +3,19 @@
 
 @import 'base/utilities';
 
+@import "layouts/footer";
+@import "layouts/header";
+@import "layouts/main";
 @import 'layouts/navbar';
 @import "layouts/sidebar";
-@import "layouts/footer";
 
+@import "components/albums";
+@import "components/direct_uploads";
+@import "components/home_banners";
 @import "components/menu";
 @import "components/notifications";
-@import "components/albums";
-@import "components/services";
-@import "components/direct_uploads";
 @import "components/opinions_sw";
-@import "components/home_banners";
+@import "components/services";
 
 a:hover {
   background: transparent !important;

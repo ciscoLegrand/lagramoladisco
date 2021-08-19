@@ -25,6 +25,7 @@
     position:relative;
   }
 
+  li:hover>span,
   li:hover > a{
     background:#20304C;
     border-radius: 7px;
@@ -38,8 +39,16 @@
     padding:6px 15px;
     transition:0.2s;
     margin: 5px 15px 5px 15px;
+
+    &.panel-block:hover{
+      background: #20304C;
+    }
   }
 
+  a.item{
+    margin-bottom: 10px
+  }
+  
   span {    
     display:block;
     color:#a5afbd;

@@ -11,8 +11,24 @@
   display: flex;
   flex-direction: column;
 
+  &.open {
+    width: 260px;
+    visibility: visible;
+
+    &:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 259px;
+      right: 0;
+      background-color: rgba($black, .5);
+    }
+  }
+
   @include touch {
-    display: none;
+    visibility: hidden;
+    width: 0;
   }
 
   &__letter_user {
@@ -78,6 +94,20 @@
 
   .dropdown-menu {
     width: 100%;
+  }
+  &__close {
+    background: $link;
+    border-radius: 0;
+    position: absolute;
+    right: -20px;
+    display: none;
+    right: -35px;
+    min-width: 35px;
+    min-height: 35px;
+
+    @include touch {
+      display: block;
+    }
   }
 }
 
