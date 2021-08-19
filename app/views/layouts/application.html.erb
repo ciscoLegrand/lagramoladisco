@@ -15,10 +15,9 @@
     <%= tag.meta name: "direct-upload-url", content: rails_direct_uploads_path %>
     <%= javascript_include_tag "turbo", type: "module" %>
     <%= stimulus_include_tags %>
-    <!--fontawesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <!--flatpickr-->
      <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css', 'data-turbo-track': 'reload'%> 
+     <%= stylesheet_link_tag 'https://npmcdn.com/flatpickr/dist/themes/dark.css', 'data-turbo-track': 'reload'%> 
      <!--slimselect-->
      <%= stylesheet_link_tag "https://unpkg.com/slim-select@1.27.0/dist/slimselect.min.css", "data-turbo-track": "reload" %>
 
