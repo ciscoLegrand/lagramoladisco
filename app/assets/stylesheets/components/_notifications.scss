@@ -1,22 +1,18 @@
-// notifications
 .notifications {
   position: fixed;
   right: 1rem;
   top: 1rem;
-  z-index: 30;
+  z-index: 32;
   width: 100%;
   max-width: 24rem;
-  background: transparent;
-  
+
   &__item {
     background: $white;
     box-shadow: $box-shadow;
     border: 1px solid $grey-lightest;
     border-radius: 3px 3px 0 0;
-    padding: 1rem;
     margin-bottom: .25rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     &.success {
@@ -55,4 +51,3 @@
     }
   }
 }
-//end notifications

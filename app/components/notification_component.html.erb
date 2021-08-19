@@ -1,18 +1,12 @@
-
-<div class="notification notifications">
-  <div class="notifications__item <%= @color_class %>" data-controller="notification">
-    <span class="notifications_item-icon <%= @color_class %>">
-      <i class="fas <%= @icon_class %>"></i>
+<div class="notifications">
+  <div class="notification notifications__item <%= color_class %> " data-controller='notification'  data-notification-delay-value="4000">
+    <span class="notifications__item-icon">
+      <%= icon %>  
     </span>
-    <span class="has-text-dark"><%= @data[:title] %></span>
-    <span>         
-      <% if @data[:body].present? %>
-        <p class="mt-1 ">
-          <%= @data[:body] %>
-        </p>
-      <% end %>
-    </span>
-    <button class="delete" data-action="click->notification#close"></button>
-  </div>
+    <span class="notifications__item-content has-text-dark"><%= data[:title] %></span>
+    <% if data[:body].present? %>
+      <span> <%= data[:body]%> </span>
+    <% end %>
+    <button class="delete notifications__item-close" data-action="click->notification#close"></button>
+  </div>         
 </div>
-
