@@ -1,16 +1,18 @@
 
 <h1 class="table-subtitle subtitle is-4 has-text-centered has-text-white has-background-primary">Albums</h1>
 <%= link_to 'Crear Album', new_album_path, class: "button is-primary is-hoverable mr-2 mb-2" %>
-<%= turbo_frame_tag :users do %>
+<%= turbo_frame_tag :albumss do %>
   <%= render TableComponent.new(headers: @headers) do |table| %>
     <%= @albums.each do |album|%>
       <%= table.row(cells: object_to_table_cells(album, @attrs)) do  |row| %>
         <% row.actions do %>
-          <div class="buttons is-pulled-right">
-            <%= link_to inline_svg_tag('icons/ico-eye.svg', class: 'icon is-medium has-text-primary'), album,  data:{turbo_frame: "_top"}  %>
-            <%#= link_to inline_svg_tag('icons/ico-edit.svg', class: 'icon is-medium has-text-primary mx-3'), edit_album_path(album) %>
-            <%= button_to album  ,class: 'btn-icon is-clickable', method: :delete, data: { confirm: 'Are you sure?' }  do  %>
-              <%= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+          <div class="buttons is-justify-content-center">
+            <% if current_user.is_admin? %>
+              <%= link_to inline_svg_tag('icons/ico-eye.svg', class: ' icon is-medium has-text-primary'), album,  data:{turbo_frame: "_top"}, class: 'button is-clickable' %>
+              <%= link_to inline_svg_tag('icons/ico-edit.svg', class: ' icon is-medium has-text-primary'), edit_album_path(album),  data:{turbo_frame: "_top"}, class: 'button is-clickable' %>
+              <%= button_to album , method: :delete,data: { controller: "swal", action: "click->swal#fire", swal_options_value: default_swal_options, turbo_frame: "_top" }, class: 'button is-clickable' do  %>
+                <%= inline_svg_tag('icons/ico-trash.svg', class: 'icon is-medium has-text-primary is-clickable') %>
+              <% end %>
             <% end %>
           </div>
         <% end %>
@@ -19,49 +21,5 @@
   <% end %>
   <div class="box">
   <%== pagy_bulma_nav(@pagy) %>
-  </div>
-<% end %>
-
-<% if 1 == 0 %>
-  <div class="box">
-    <table class="table is-striped is-hoverable is-sortable is-fullwidth">
-      <thead>
-        <tr>
-          <th class="title is-5">Titulo</th>
-          <th class="title is-5">Fecha</th>
-          <th class="title is-5">Contraseña</th>
-          <th class="title is-5">Portada</th>
-          <th class="title is-5">Imagenes</th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        <% @albums.each do |album| %>
-        <tr>
-          <td> <%= album.title %></td>
-          <td> <%= album.date_event %></td>
-          <td class="has-text-centered"> <%= album.password%> </td>
-          <td>
-            <% if album.galleries.present? && album.galleries.first.images.attached? %>
-            <%= image_tag url_for( album.galleries.first.images.first), data: {src: "#{rails_blob_url(album.galleries.first.images.first)}"},width: '50' %>
-            <% end %>
-          </td>
-          <td class="has-text-centered"> 
-            <% count = 0%>
-            <% album.galleries.each {|gal| count += gal.images.length } %>
-            <%= count %> 
-          </td>
-          <td></td>
-          <td class="has-text-right is-centered is-vcentered">
-            <%= link_to inline_svg_tag('icons/ico-eye.svg'), album, class: 'icon' %> |
-            <%= link_to inline_svg_tag('icons/ico-edit.svg'), edit_album_path(album), class: 'icon' %> |
-            <%= link_to inline_svg_tag('icons/ico-trash.svg'), album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'icon' %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%== pagy_bulma_nav(@pagy) if @pagy.present? %>
   </div>
 <% end %>

@@ -7,6 +7,7 @@ class ServiceObjectsController < ApplicationController
     @headers = ['NOMBRE', 'DESCRIPCION','POSICION','SERVICIO','PRECIO']
 
     @attrs =  [:name,:description, :position, :service_name, :price]
+    # TODO: get only objets inside service
     @pagy, @service_objects = pagy(ServiceObject.all, items: 10)
   end
 

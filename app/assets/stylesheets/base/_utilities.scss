@@ -19,13 +19,19 @@
    display:none;
  }
 
+ .is-scrollable-touch{
+   overflow-x: scroll;
+   @include until($tablet) {
+     overflow-x: scroll;
+   }
+ }
+ 
  //Para truncar en una sola linea:
 .truncate {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 //Para truncar segun cantidad de lineas horizontales:
 .block-with-text {
     overflow: hidden;

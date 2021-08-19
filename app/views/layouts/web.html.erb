@@ -15,9 +15,7 @@
 
   <body data-controller="burguer">
     <%= render 'layouts/partials/navbar' %>
-    <% flash.each do |type, data| %>
-      <%= render NotificationComponent.new(type: type, data: data) %>
-    <% end %>
+    <%= render NotificationComponent.with_collection(flash.to_a) %>
     
     <% unless @home %>
       <h1 class="title is-1-desktop is-4-touch has-background-primary has-text-centered has-text-white py-2 is-fullwidth">

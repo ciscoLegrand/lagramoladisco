@@ -2,7 +2,7 @@
       <div class="hero-body">
         <div class="container">
           <div class="container my-5 mt-5 mx-5 px-5">
-            <!-- ! form desktop -->
+            <!-- form desktop -->
             <%= form_with(model: @contact, local: true, html: {class: 'box has-background-white-ter is-hidden-touch'}) do |form| %>
               <% if @contact.errors.any? %>
                 <div id="error_explanation">
@@ -40,8 +40,7 @@
                   </div>
                 </div>
               </div>
-              <%# if 1 == 0 %>
-                <!--TODO: configurar estos cmapos-->
+                <!--TODO: configurar estos campos-->
                 <div class="field is-horizontal">
                   <div class="field-body is-flex is-justify-content-space-between">
                     <div class="field">
@@ -76,7 +75,6 @@
                     </div>
                   </div>
                 </div>
-              <%# end %>
               <div class="field"> 
                 <%= form.label 'Asunto', class:'label is-size-4 has-text-weight-light' %>
                 <div class="control has-icons-left">
@@ -99,8 +97,6 @@
                 </div>
               </div>
             <% end %>
-            <!-- ! form mobile -->
-
           </div>
           <h4 class="subtitle is-size-4 is-size-4-mobile has-text-centered">Para cualquier consulta nos puedes encontrar en: <%= WebConfig.first.contact_phone if WebConfig.first.contact_phone.present? %> y también en <%= WebConfig.first.global_email if WebConfig.first.global_email.present? %></h4>
           <div class="container my-5 mt-5 mx-5 px-5 columns box is-justify-content-center has-background-white-ter">
@@ -126,7 +122,8 @@
         </div>
       </div>
     </section>
-    <div class="column is-12 is-hidden-deskto"> 
+    <!-- ! form mobile -->
+    <div class="column is-12 is-hidden-desktop"> 
       <%= form_with(model: @contact, local: true, html: {class: 'box has-background-white-ter is-hidden-desktop'}) do |form| %>
         <% if @contact.errors.any? %>
           <div id="error_explanation">

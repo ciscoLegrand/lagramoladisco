@@ -10,10 +10,20 @@ module ApplicationHelper
     current_year = Date.today.year
   end
 
-  def svg(path)
-    File.open("app/assets/images/recortes/#{path}", "rb") do |file|
-      raw file.read
-    end
+  def default_swal_options
+    '{
+      "title": "Estás seguro?",
+      "text": "Una vez eliminado no podrás recuperar el registro",
+      "icon": "warning",
+      "showCancelButton": true,
+      "confirmButtonText":  "Eliminar",
+      "cancelButtonText": "Cancelar",
+      "buttonsStyling": false,
+      "customClass": {
+        "confirmButton": "button is-danger mx-2",
+        "cancelButton": "button is-light mx-2"
+      }
+    }'
   end
 
 end
